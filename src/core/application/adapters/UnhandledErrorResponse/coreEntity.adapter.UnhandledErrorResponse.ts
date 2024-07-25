@@ -1,5 +1,5 @@
+import { CoreEntityEnum, type CoreEntityResponse } from '@core/domain';
 import { HELPERS } from '@core/infrastructure/helpers';
-import { type CoreEntityResponse, CoreEntityEnum } from '@core/domain';
 
 import { ApplicationFailedResponse } from '../ApplicationFailedResponse';
 
@@ -14,11 +14,13 @@ export class UnhandledErrorResponse {
 
   invoke(): CoreEntityResponse.ApplicationFailedOutput {
     HELPERS.AppResponseLog.exception(
+      // eslint-disable-next-line max-len
       `An unhandled error has happened on ${this.functionName}. Details: ${this.message}`,
     );
 
     return ApplicationFailedResponse(
       CoreEntityEnum.SERVER_ERROR_HTTP_STATUS_CODE.INTERNAL_SERVER_ERROR,
+      // eslint-disable-next-line max-len
       `An unhandled error has happened on ${this.functionName}. Details: ${this.message}`,
     );
   }

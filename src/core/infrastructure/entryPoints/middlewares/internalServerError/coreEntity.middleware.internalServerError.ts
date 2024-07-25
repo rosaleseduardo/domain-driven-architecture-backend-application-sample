@@ -1,7 +1,6 @@
-/* eslint-disable max-len */
-import { CoreEntityEnum } from '@core/domain';
+import type { NextFunction,Request, Response } from 'express';
 
-import type { Request, Response, NextFunction } from 'express';
+import { CoreEntityEnum } from '@core/domain';
 
 /**
  * Handles errors by setting the appropriate status code and returning a JSON
@@ -12,9 +11,13 @@ import type { Request, Response, NextFunction } from 'express';
  * @param  res - The HTTP response object.
  * @param _next - The next middleware function.
  *
- * @see {@link https://www.codeconcisely.com/posts/how-to-handle-errors-in-express-with-typescript/#creating-a-custom-error-handling-middleware}
+ * Reference: https://www.codeconcisely.com/posts/
+ * how-to-handle-errors-in-express-with-typescript/
+ * #creating-a-custom-error-handling-middleware
  */
-function internalServerError(err: Error, _req: Request, res: Response, next: NextFunction): void {
+const internalServerError = (
+  err: Error, _req: Request, res: Response, next: NextFunction,
+): void => {
   res.status(
     res.statusCode !== CoreEntityEnum.SUCCESSFUL_HTTP_STATUS_CODE.OK
       ? res.statusCode
@@ -23,19 +26,19 @@ function internalServerError(err: Error, _req: Request, res: Response, next: Nex
   res.json(
     process.env.NODE_ENV === 'production'
       ? {
-          message: err.message,
-          // @ts-expect-error: This is not introducing a bug
-          cause: err.cause,
-        }
+        message: err.message,
+        // @ts-expect-error: This is not introducing a bug
+        cause: err.cause,
+      }
       : {
-          message: err.message,
-          // @ts-expect-error: This is not introducing a bug
-          cause: err.cause,
-          stackTrace: err.stack,
-        },
+        message: err.message,
+        // @ts-expect-error: This is not introducing a bug
+        cause: err.cause,
+        stackTrace: err.stack,
+      },
   );
 
   next(err);
-}
+};
 
 export default internalServerError;

@@ -1,12 +1,18 @@
-import { type CoreEntityResponse } from '@core/domain';
+import {
+  type User, USER_ENTITY, type UserEntityImplLogic,
+} from 'entities/users';
+
 import { ADAPTERS } from '@core/application/adapters';
-import { ADAPTERS as USER_ADAPTERS } from '@entities/users/application/adapters';
-import { USER_ENTITY, type UserEntityImplLogic, type User } from 'entities/users';
+import { type CoreEntityResponse } from '@core/domain';
+import {
+  ADAPTERS as USER_ADAPTERS,
+} from '@entities/users/application/adapters';
 
 export class Create {
   private readonly _crudImpl: UserEntityImplLogic.Crud;
   private readonly _crudValidationImpl: UserEntityImplLogic.CrudValidation;
   private readonly _crudResponsesImpl: UserEntityImplLogic.CrudResponses;
+  // eslint-disable-next-line max-len
   private readonly _crudValidationResponsesImpl: UserEntityImplLogic.CrudValidationResponses;
 
   constructor(
@@ -24,16 +30,19 @@ export class Create {
   async invoke(
     user: User,
   ): Promise<
+    // eslint-disable-next-line max-len
     CoreEntityResponse.DataSourceOutput<User> | CoreEntityResponse.ApplicationFailedOutput
   > {
-    const INCOMING_USER_DATA_IS_VALID = new USER_ENTITY.BUSINESS_LOGIC.CreateDataIsValid(
+    const { BUSINESS_LOGIC } = USER_ENTITY;
+    const INCOMING_USER_DATA_IS_VALID = new BUSINESS_LOGIC.CreateDataIsValid(
       user,
       this._crudValidationImpl,
       this._crudValidationResponsesImpl,
     );
 
     if (INCOMING_USER_DATA_IS_VALID.invoke()) {
-      const recordPreExists = await new USER_ENTITY.BUSINESS_LOGIC.RecordPreExists(
+      const { BUSINESS_LOGIC } = USER_ENTITY;
+      const recordPreExists = await new BUSINESS_LOGIC.RecordPreExists(
         this._crudImpl,
       ).invoke(user.email);
 
@@ -41,10 +50,14 @@ export class Create {
         try {
           await this._crudImpl.save(user);
         } catch (error) {
-          return new ADAPTERS.UnhandledErrorResponse('CreateUserUseCase', error as string).invoke();
+          return new ADAPTERS.UnhandledErrorResponse(
+            'CreateUserUseCase', error as string,
+          ).invoke();
         }
 
-        return this._crudResponsesImpl.creationSucceeded(USER_ADAPTERS.RefineUserEntity(user));
+        return this._crudResponsesImpl.creationSucceeded(
+          USER_ADAPTERS.RefineUserEntity(user),
+        );
       }
 
       return this._crudResponsesImpl.creationFailed();

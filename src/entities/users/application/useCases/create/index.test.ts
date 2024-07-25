@@ -1,12 +1,13 @@
-import { USER_ENTITY, type User, type UserEntityImplLogic } from 'entities/users';
+import {
+  type User, USER_ENTITY, type UserEntityImplLogic,
+} from 'entities/users';
 
 import {
   MockCrudImplementation,
   MockCrudResponsesImplementation,
-  MockCrudValidationResponsesImplementation,
   MockCrudValidationImplementation,
+  MockCrudValidationResponsesImplementation,
 } from './mocks';
-
 import { Create } from '.';
 
 jest.mock('@application/users', () => ({
@@ -41,7 +42,8 @@ describe('Use Case - Create User', () => {
     crudImplementationMock = new MockCrudImplementation();
     crudValidationImplementationMock = new MockCrudValidationImplementation();
     crudResponsesImplementationMock = new MockCrudResponsesImplementation();
-    crudValidationResponsesImplementationMock = new MockCrudValidationResponsesImplementation();
+    crudValidationResponsesImplementationMock =
+    new MockCrudValidationResponsesImplementation();
 
     createUseCase = new Create(
       crudImplementationMock,
@@ -82,7 +84,9 @@ describe('Use Case - Create User', () => {
     expect(USER_ENTITY.BUSINESS_LOGIC.CreateDataIsValid).toHaveBeenCalled();
     expect(USER_ENTITY.BUSINESS_LOGIC.RecordPreExists).toHaveBeenCalled();
     expect(crudImplementationMock.save).toHaveBeenCalledWith(user);
-    expect(crudResponsesImplementationMock.creationSucceeded).toHaveBeenCalled();
+    expect(
+      crudResponsesImplementationMock.creationSucceeded,
+    ).toHaveBeenCalled();
   });
 
   it(`It should return a failed response when user data is valid and record

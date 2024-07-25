@@ -1,5 +1,7 @@
-import { type User, type UserEntityImplLogic, USER_ENTITY } from 'entities/users';
 import bcrypt from 'bcrypt';
+import {
+  type User, USER_ENTITY,type UserEntityImplLogic,
+} from 'entities/users';
 
 export class Repository implements UserEntityImplLogic.Crud {
   async save(user: User): Promise<void> {

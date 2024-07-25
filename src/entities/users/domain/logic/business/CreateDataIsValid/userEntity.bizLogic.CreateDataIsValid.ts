@@ -1,9 +1,11 @@
 import type { User, UserEntityImplLogic } from 'entities/users';
+
 import type { CoreEntityResponse } from '@core/domain';
 
 export class CreateDataIsValid {
   private readonly _user: User;
   private readonly _crudValidationImpl: UserEntityImplLogic.CrudValidation;
+  // eslint-disable-next-line max-len
   private readonly _crudValidationResponsesImpl: UserEntityImplLogic.CrudValidationResponses;
 
   constructor(
@@ -24,7 +26,9 @@ export class CreateDataIsValid {
       age: 0,
     };
 
-    if (!this._crudValidationImpl.areEqual(Object.keys(this._user), Object.keys(sampleUser))) {
+    if (!this._crudValidationImpl.areEqual(
+      Object.keys(this._user), Object.keys(sampleUser),
+    )) {
       return this._crudValidationResponsesImpl.incompleteInputData();
     }
 

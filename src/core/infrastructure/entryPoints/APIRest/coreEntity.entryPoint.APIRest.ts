@@ -10,14 +10,16 @@ export class APIRest {
     this.server = new ExpressServer(port);
 
     try {
-      await this.server.listen().then(function () {
-        HELPERS.AppResponseLog.success('API REST Services are up and running\n\n');
+      await this.server.listen().then(() => {
+        HELPERS.AppResponseLog.success(
+          'API REST Services are up and running\n\n',
+        );
       });
     } catch (error) {
       await this.server.stop();
 
       HELPERS.AppResponseLog.exception(
-        // eslint-disable-next-line @typescript-eslint/restrict-template-expressions
+        // eslint-disable-next-line max-len
         `An unhandled error has occured when starting ExpressServer. Details: ${error}`,
       );
     }

@@ -1,6 +1,6 @@
-import { CoreEntityEnum } from '@core/domain';
+import type { NextFunction,Request, Response } from 'express';
 
-import type { Request, Response, NextFunction } from 'express';
+import { CoreEntityEnum } from '@core/domain';
 
 /**
  * Handles requests that do not match any routes by setting the appropriate
@@ -10,10 +10,14 @@ import type { Request, Response, NextFunction } from 'express';
  * @param res - The HTTP response object.
  * @param next - The next middleware function.
  */
-export default function resourceNotFound(req: Request, res: Response, next: NextFunction): void {
+const resourceNotFound = (
+  req: Request, res: Response, next: NextFunction,
+): void => {
   res.status(CoreEntityEnum.CLIENT_ERROR_HTTP_STATUS_CODE.NOT_FOUND).json({
     message: `The requested endpoint '${req.originalUrl}' does not exists`,
   });
 
   next();
-}
+};
+
+export default resourceNotFound;

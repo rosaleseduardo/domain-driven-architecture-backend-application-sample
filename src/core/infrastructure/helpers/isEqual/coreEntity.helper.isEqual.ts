@@ -8,6 +8,6 @@ import { isEqual as isEqualLodash } from 'lodash';
  *
  * @returns `true` if the arrays are equal, `false` otherwise.
  */
-export function isEqual(valueOne: string[], valueTwo: string[]): boolean {
+export const isEqual = (valueOne: string[], valueTwo: string[]): boolean => {
   return isEqualLodash(valueOne, valueTwo);
-}
+};

@@ -1,7 +1,8 @@
 /**
  * Enum representing informational HTTP status codes.
- *
- * {@link https://developer.mozilla.org/en-US/docs/Web/HTTP/Status#information_responses}
+ * 
+ * Reference: https://developer.mozilla.org/en-US/docs/Web/HTTP/
+ * Status#information_responses
  */
 export const enum INFORMATIONAL_HTTP_STATUS_CODE {
   /**
@@ -14,7 +15,8 @@ export const enum INFORMATIONAL_HTTP_STATUS_CODE {
 /**
  * Enum representing successful HTTP status codes.
  *
- * {@link https://developer.mozilla.org/en-US/docs/Web/HTTP/Status#successful_responses}
+ * Reference: https://developer.mozilla.org/en-US/docs/Web/HTTP/
+ * Status#successful_responses
  */
 export const enum SUCCESSFUL_HTTP_STATUS_CODE {
   /**
@@ -38,7 +40,8 @@ export const enum SUCCESSFUL_HTTP_STATUS_CODE {
 /**
  * Enum representing redirection HTTP status codes.
  *
- * {@link https://developer.mozilla.org/en-US/docs/Web/HTTP/Status#redirection_messages}
+ * Reference: https://developer.mozilla.org/en-US/docs/Web/HTTP/
+ * Status#redirection_messages
  */
 export const enum REDIRECTION_HTTP_STATUS_CODE {
   /**
@@ -55,7 +58,8 @@ export const enum REDIRECTION_HTTP_STATUS_CODE {
 /**
  * Enum representing client error HTTP status codes.
  *
- * {@link https://developer.mozilla.org/en-US/docs/Web/HTTP/Status#client_error_responses}
+ * Reference: https://developer.mozilla.org/en-US/docs/Web/HTTP/
+ * Status#client_error_responses
  */
 export const enum CLIENT_ERROR_HTTP_STATUS_CODE {
   /**
@@ -91,7 +95,8 @@ export const enum CLIENT_ERROR_HTTP_STATUS_CODE {
 /**
  * Enum representing server error HTTP status codes.
  *
- * {@link https://developer.mozilla.org/en-US/docs/Web/HTTP/Status#server_error_responses}
+ * Reference: https://developer.mozilla.org/en-US/docs/Web/HTTP/
+ * Status#server_error_responses
  */
 export const enum SERVER_ERROR_HTTP_STATUS_CODE {
   /**
@@ -112,17 +117,20 @@ export const enum SERVER_ERROR_HTTP_STATUS_CODE {
  */
 export const enum APP_RESPONSE_TYPE {
   /**
-   * SUCCESS: The application response indicating successful operation or request.
+   * SUCCESS: The application response indicating successful operation or 
+   * request.
    */
   SUCESS = 'SUCCESS',
 
   /**
-   * WARNING: The application response indicating a warning or non-critical issue.
+   * WARNING: The application response indicating a warning or non-critical 
+   * issue.
    */
   WARNING = 'WARNING',
 
   /**
-   * EXCEPTION: The application response indicating an exception or critical error.
+   * EXCEPTION: The application response indicating an exception or critical 
+   * error.
    */
   EXCEPTION = 'EXCEPTION',
 

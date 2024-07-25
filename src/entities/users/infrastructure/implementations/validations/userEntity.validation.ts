@@ -1,6 +1,6 @@
-import { HELPERS } from '@core/infrastructure/helpers';
+import type  { UserEntityImplLogic } from 'entities/users';
 
-import type { UserEntityImplLogic } from 'entities/users';
+import { HELPERS } from '@core/infrastructure/helpers';
 
 export class UserValidation implements UserEntityImplLogic.CrudValidation {
   isValidEmail(email: string): boolean {

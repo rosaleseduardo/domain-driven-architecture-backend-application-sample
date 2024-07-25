@@ -1,8 +1,8 @@
 import express from 'express';
+import type * as http from 'http';
+
 import { ENDPOINTS, MIDDLEWARES } from '@core/infrastructure/entryPoints';
 import { HELPERS } from '@core/infrastructure/helpers';
-
-import type * as http from 'http';
 
 class ExpressServer {
   private readonly _port: string;
@@ -44,9 +44,11 @@ class ExpressServer {
   }
 
   async listen(): Promise<void> {
-    await new Promise<void>((resolve) => {
+    await new Promise<void>(resolve => {
       this._httpServer = this._app.listen(this._port, () => {
-        HELPERS.AppResponseLog.success(`App is being served on http://localhost:${this._port}\n`);
+        HELPERS.AppResponseLog.success(
+          `App is being served on http://localhost:${this._port}\n`,
+        );
         resolve();
       });
     });
@@ -55,7 +57,7 @@ class ExpressServer {
   async stop(): Promise<void> {
     await new Promise<void>((resolve, reject) => {
       if (this._httpServer != null) {
-        this._httpServer?.close((error) => {
+        this._httpServer?.close(error => {
           if (error != null) {
             reject(error);
             return;

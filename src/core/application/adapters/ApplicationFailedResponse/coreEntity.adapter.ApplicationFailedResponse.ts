@@ -1,13 +1,13 @@
 import { type CoreEntityResponse } from '@core/domain';
 
-export function ApplicationFailedResponse(
+export const ApplicationFailedResponse = (
   httpStatusCode: number,
   message: string,
-): CoreEntityResponse.ApplicationFailedOutput {
+): CoreEntityResponse.ApplicationFailedOutput => {
   return {
     httpStatusCode,
     data: {
       message,
     },
   };
-}
+};

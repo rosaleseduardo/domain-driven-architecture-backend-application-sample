@@ -1,1 +1,3 @@
-export { default as internalServerError } from './coreEntity.middleware.internalServerError';
+export {
+  default as internalServerError,
+} from './coreEntity.middleware.internalServerError';

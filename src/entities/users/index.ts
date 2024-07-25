@@ -1,13 +1,13 @@
-import { ADAPTERS, USE_CASES } from './application';
 import { BUSINESS_LOGIC } from './domain/logic/business';
 import { UserValidation } from './infrastructure/implementations/validations';
+import { ADAPTERS, USE_CASES } from './application';
 import {
   BUSINESS_RULES_RESPONSES,
-  CRUD_RESPONSES,
   COLLECTION,
   CONTROLLERS,
-  ROUTER,
+  CRUD_RESPONSES,
   Repository,
+  ROUTER,
 } from './infrastructure';
 
 export const USER_ENTITY = {

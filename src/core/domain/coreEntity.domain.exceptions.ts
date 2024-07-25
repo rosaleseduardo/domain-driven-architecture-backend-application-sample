@@ -8,7 +8,9 @@ class InternalServerErrorException extends Error {
    * @param cause - The cause of the exception.
    */
   constructor(cause: string) {
-    super(`There was an exception when processing the request. Cause: ${cause}`);
+    super(
+      `There was an exception when processing the request. Cause: ${cause}`,
+    );
   }
 }
 
@@ -22,7 +24,9 @@ class ResourceNotFound extends Error {
    * @param cause - The cause of the exception.
    */
   constructor(cause: string) {
-    super(`There was an exception when processing the request. Cause: ${cause}`);
+    super(
+      `There was an exception when processing the request. Cause: ${cause}`,
+    );
   }
 }
 

@@ -1,5 +1,7 @@
-import { CONTROLLERS } from 'entities/users/infrastructure/implementations/controllers';
 import { Router } from 'express';
+import {
+  CONTROLLERS,
+} from 'entities/users/infrastructure/implementations/controllers';
 
 const ROUTER = Router();
 

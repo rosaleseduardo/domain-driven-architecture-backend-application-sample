@@ -1,6 +1,6 @@
-import { RefineUserEntity } from '.';
-
 import type { User } from 'entities/users';
+
+import { RefineUserEntity } from '.';
 
 describe('Adapter - DataSourceResponse', () => {
   it('It should return an User object without the password', () => {

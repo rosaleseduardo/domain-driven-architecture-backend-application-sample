@@ -1,1 +1,3 @@
-export { default as resourceNotFound } from './coreEntity.middleware.resourceNotFound';
+export {
+  default as resourceNotFound,
+} from './coreEntity.middleware.resourceNotFound';

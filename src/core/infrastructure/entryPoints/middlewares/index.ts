@@ -1,9 +1,9 @@
-import morgan from 'morgan';
-import helmet from 'helmet';
 import cors from 'cors';
+import helmet from 'helmet';
+import morgan from 'morgan';
 
-import { resourceNotFound } from './resourceNorFound';
 import { internalServerError } from './internalServerError';
+import { resourceNotFound } from './resourceNorFound';
 
 export const MIDDLEWARES = {
   CORS: cors({

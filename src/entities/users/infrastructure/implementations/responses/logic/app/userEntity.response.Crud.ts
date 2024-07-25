@@ -1,14 +1,15 @@
-import { type CoreEntityResponse, CoreEntityEnum } from '@core/domain';
-import { HELPERS } from '@core/infrastructure/helpers';
-import { ADAPTERS } from '@core/application/adapters';
-
 import type { User, UserEntityImplLogic } from 'entities/users';
+
+import { ADAPTERS } from '@core/application/adapters';
+import { CoreEntityEnum,type CoreEntityResponse } from '@core/domain';
+import { HELPERS } from '@core/infrastructure/helpers';
 
 export class Crud implements UserEntityImplLogic.CrudResponses {
   creationSucceeded(
     dataSource: Omit<User, 'password'>,
   ): CoreEntityResponse.DataSourceOutput<Omit<User, 'password'>> {
     HELPERS.AppResponseLog.success(
+      // eslint-disable-next-line max-len
       'APP_LOGIC - CREATE_USER_USE_CASE: A new user has been created successfully',
     );
 

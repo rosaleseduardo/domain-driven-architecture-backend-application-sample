@@ -1,4 +1,5 @@
 import type { User } from 'entities/users';
+
 import type { CoreEntityResponse } from '@core/domain';
 
 /**

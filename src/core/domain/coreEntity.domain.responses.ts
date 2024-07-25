@@ -8,7 +8,8 @@ export interface ApplicationGeneral {
   httpStatusCode: number;
 
   /**
-   * A boolean value indicating whether the operation or request passed successfully.
+   * A boolean value indicating whether the operation or request passed 
+   * successfully.
    */
   passed: boolean;
 

@@ -1,5 +1,6 @@
-/* eslint-disable @typescript-eslint/restrict-template-expressions */
+ 
 import * as dotenv from 'dotenv';
+
 import { APIRest } from '@core/infrastructure/entryPoints';
 import { HELPERS } from '@core/infrastructure/helpers';
 
@@ -8,8 +9,8 @@ try {
 
   void new APIRest().start();
 } catch (err) {
-  // eslint-disable-next-line @typescript-eslint/restrict-template-expressions
   HELPERS.AppResponseLog.exception(
+    // eslint-disable-next-line max-len
     `An unhandled error has occured whren starting APIRestServices. Details: ${err}`,
   );
 }

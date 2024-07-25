@@ -1,4 +1,5 @@
 import chalk from 'chalk';
+
 import { CoreEntityEnum, type CoreEntityLog } from '@core/domain';
 
 /**
@@ -18,21 +19,37 @@ const errorOutput = chalk.bgRedBright;
  */
 const infoOutput = chalk.bgBlueBright;
 
-function success(message: string): void {
-  console.log(successOutput(`${chalk.bold(CoreEntityEnum.APP_RESPONSE_TYPE.SUCESS)}: ${message}`));
-}
+const success = (message: string): void => {
+  console.log(
+    successOutput(
+      `${chalk.bold(CoreEntityEnum.APP_RESPONSE_TYPE.SUCESS)}: ${message}`,
+    ),
+  );
+};
 
-function warning(message: string): void {
-  console.log(warningOutput(`${chalk.bold(CoreEntityEnum.APP_RESPONSE_TYPE.WARNING)}: ${message}`));
-}
+const warning = (message: string): void => {
+  console.log(
+    warningOutput(
+      `${chalk.bold(CoreEntityEnum.APP_RESPONSE_TYPE.WARNING)}: ${message}`,
+    ),
+  );
+};
 
-function exception(message: string): void {
-  console.log(errorOutput(`${chalk.bold(CoreEntityEnum.APP_RESPONSE_TYPE.EXCEPTION)}: ${message}`));
-}
+const exception = (message: string): void => {
+  console.log(
+    errorOutput(
+      `${chalk.bold(CoreEntityEnum.APP_RESPONSE_TYPE.EXCEPTION)}: ${message}`,
+    ),
+  );
+};
 
-function info(message: string): void {
-  console.log(infoOutput(`${chalk.bold(CoreEntityEnum.APP_RESPONSE_TYPE.INFO)}: ${message}`));
-}
+const info = (message: string): void => {
+  console.log(
+    infoOutput(
+      `${chalk.bold(CoreEntityEnum.APP_RESPONSE_TYPE.INFO)}: ${message}`,
+    ),
+  );
+};
 
 /** Outputs the response from a process */
 export const AppResponseLog: CoreEntityLog.AppResponseDefinition = {

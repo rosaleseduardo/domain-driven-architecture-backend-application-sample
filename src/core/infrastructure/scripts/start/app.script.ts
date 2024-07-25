@@ -1,6 +1,6 @@
+import { execSync } from 'child_process';
 import fs from 'fs';
 import path from 'path';
-import { execSync } from 'child_process';
 
 import { HELPERS } from '../../helpers';
 
@@ -17,5 +17,7 @@ if (fs.existsSync(envFile)) {
   );
 }
 
-HELPERS.AppResponseLog.exception('Please, create your .env file, it is required to continue\n');
+HELPERS.AppResponseLog.exception(
+  'Please, create your .env file, it is required to continue\n',
+);
 HELPERS.AppResponseLog.info('App was stopped\n');
