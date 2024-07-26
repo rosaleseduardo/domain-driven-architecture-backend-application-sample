@@ -8,7 +8,6 @@ import pluginTs from '@typescript-eslint/eslint-plugin';
 import parserTs from '@typescript-eslint/parser';
 import pluginJs from '@eslint/js';
 
-
 /**
  * - Configuration Files
  *
