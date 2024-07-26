@@ -1,12 +1,12 @@
-import simpleImportSort from 'eslint-plugin-simple-import-sort';
 import pluginImport from 'eslint-plugin-import';
-import tseslint from 'typescript-eslint';
+import simpleImportSort from 'eslint-plugin-simple-import-sort';
 import tsdoc from 'eslint-plugin-tsdoc';
 import globals from 'globals';
+import tseslint from 'typescript-eslint';
 
+import pluginJs from '@eslint/js';
 import pluginTs from '@typescript-eslint/eslint-plugin';
 import parserTs from '@typescript-eslint/parser';
-import pluginJs from '@eslint/js';
 
 /**
  * - Configuration Files
@@ -24,7 +24,7 @@ import pluginJs from '@eslint/js';
  */
 export default [
   { files: ['**/*.{ts,tsx}'] },
-  { ignores: ['coverage', 'eslint.config.js'] },
+  { ignores: ['coverage', 'eslint.config.mjs'] },
   { 
     languageOptions: {
       parser: parserTs,
