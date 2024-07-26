@@ -34,7 +34,8 @@ export default [
         project: './tsconfig.eslint.json',
       },
       globals: {
-        ...globals.browser,
+        ...globals.node,
+        ...globals.jest,
       },
     },
   },
@@ -71,7 +72,7 @@ export default [
       'import/namespace': 'off',
       'import/export': 'off',
       'import/default': 'off',
-      'no-undef': 'off',
+      'no-undef': 'error',
       'import/no-named-as-default': 'off',
       'import/no-named-as-default-member': 'off',
       'comma-dangle': [
