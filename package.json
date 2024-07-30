@@ -12,6 +12,7 @@
     "prepare": "husky install",
     "lint": "eslint . --report-unused-disable-directives",
     "commit:changes": "git add -A && cz",
+    "pre-commit": "npm run test:prod && npm run lint",
     "install-deps:clean": "pnpm install --frozen-lockfile",
     "install-deps": "pnpm install",
     "run-db": "brew services start mongodb-community@7.0",
