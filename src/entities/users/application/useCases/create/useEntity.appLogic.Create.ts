@@ -1,11 +1,14 @@
 import {
-  type User, USER_ENTITY, type UserEntityImplLogic,
+  type User,
+  USER_ENTITY,
+  type UserEntityImplLogic,
 } from 'entities/users';
 
 import { ADAPTERS } from '@core/application/adapters';
 import { type CoreEntityResponse } from '@core/domain';
 import {
   ADAPTERS as USER_ADAPTERS,
+  //
 } from '@entities/users/application/adapters';
 
 export class Create {
@@ -30,8 +33,8 @@ export class Create {
   async invoke(
     user: User,
   ): Promise<
-    // eslint-disable-next-line max-len
-    CoreEntityResponse.DataSourceOutput<User> | CoreEntityResponse.ApplicationFailedOutput
+    | CoreEntityResponse.DataSourceOutput<User>
+    | CoreEntityResponse.ApplicationFailedOutput
   > {
     const { BUSINESS_LOGIC } = USER_ENTITY;
     const INCOMING_USER_DATA_IS_VALID = new BUSINESS_LOGIC.CreateDataIsValid(
@@ -51,7 +54,8 @@ export class Create {
           await this._crudImpl.save(user);
         } catch (error) {
           return new ADAPTERS.UnhandledErrorResponse(
-            'CreateUserUseCase', error as string,
+            'CreateUserUseCase',
+            error as string,
           ).invoke();
         }
 

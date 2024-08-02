@@ -13,24 +13,26 @@ export const create = async (req: Request, res: Response): Promise<void> => {
       new USER_ENTITY.RESPONSES.CRUD_VALIDATION(),
     ).invoke(req.body);
 
-    res.status(
-      useCaseCreateUser.httpStatusCode).json({ data: useCaseCreateUser.data },
-    );
+    res
+      .status(useCaseCreateUser.httpStatusCode)
+      .json({ data: useCaseCreateUser.data });
   } catch (error) {
     HELPERS.AppResponseLog.exception(
       // eslint-disable-next-line max-len
       `An unhanlded error has occurred when creating the user. Details: ${error as string}`,
     );
 
-    res.status(
-      CoreEntityEnum.SERVER_ERROR_HTTP_STATUS_CODE.INTERNAL_SERVER_ERROR,
-    ).json({
-      data: {
-        // eslint-disable-next-line max-len
-        message: `An unhanlded error has occurred when creating the user. Details: ${
-          error as string
-        }`,
-      },
-    });
+    res
+      .status(
+        CoreEntityEnum.SERVER_ERROR_HTTP_STATUS_CODE.INTERNAL_SERVER_ERROR,
+      )
+      .json({
+        data: {
+          // eslint-disable-next-line max-len
+          message: `An unhanlded error has occurred when creating the user. Details: ${
+            error as string
+          }`,
+        },
+      });
   }
 };

@@ -1,4 +1,3 @@
- 
 import * as dotenv from 'dotenv';
 
 import { APIRest } from '@core/infrastructure/entryPoints';

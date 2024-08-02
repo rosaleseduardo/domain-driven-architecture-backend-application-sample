@@ -26,9 +26,12 @@ export class CreateDataIsValid {
       age: 0,
     };
 
-    if (!this._crudValidationImpl.areEqual(
-      Object.keys(this._user), Object.keys(sampleUser),
-    )) {
+    if (
+      !this._crudValidationImpl.areEqual(
+        Object.keys(this._user),
+        Object.keys(sampleUser),
+      )
+    ) {
       return this._crudValidationResponsesImpl.incompleteInputData();
     }
 

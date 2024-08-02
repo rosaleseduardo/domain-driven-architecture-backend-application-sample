@@ -1,15 +1,16 @@
 import { type UserEntityImplLogic } from 'entities/users';
 
-// eslint-disable-next-line max-len
-export class MockCrudImplementation implements jest.MockedClass<UserEntityImplLogic.CrudCrud> {
+export class MockCrudImplementation
+  implements jest.MockedClass<UserEntityImplLogic.CrudCrud>
+{
   save = jest.fn().mockResolvedValue(undefined);
   recordPreExists = jest.fn().mockResolvedValue(false);
 }
 
 // @ts-expect-error: This is not introducing a bug
 export class MockCrudResponsesImplementation
-// @ts-expect-error: This is not introducing a bug
-implements jest.MockedClass<UserEntityImplLogic.CrudResponses>
+  // @ts-expect-error: This is not introducing a bug
+  implements jest.MockedClass<UserEntityImplLogic.CrudResponses>
 {
   creationSucceeded = jest.fn().mockImplementation(() => ({
     // Create a mock implementation for DataSourceResponseOutput
@@ -23,8 +24,8 @@ implements jest.MockedClass<UserEntityImplLogic.CrudResponses>
 
 // @ts-expect-error: This is not introducing a bug
 export class MockCrudValidationResponsesImplementation
-// @ts-expect-error: This is not introducing a bug
-implements jest.MockedClass<UserEntityImplLogic.CrudValidationResponses>
+  // @ts-expect-error: This is not introducing a bug
+  implements jest.MockedClass<UserEntityImplLogic.CrudValidationResponses>
 {
   incompleteInputData = jest.fn().mockReturnValue(true);
   completeInputData = jest.fn().mockReturnValue(true);
@@ -41,8 +42,8 @@ implements jest.MockedClass<UserEntityImplLogic.CrudValidationResponses>
 
 // @ts-expect-error: This is not introducing a bug
 export class MockCrudValidationImplementation
-// @ts-expect-error: This is not introducing a bug
-implements jest.MockedClass<UserEntityImplLogic.CrudValidation>
+  // @ts-expect-error: This is not introducing a bug
+  implements jest.MockedClass<UserEntityImplLogic.CrudValidation>
 {
   isValidEmail = jest.fn().mockReturnValue(true);
   areEqual = jest.fn().mockReturnValue(true);

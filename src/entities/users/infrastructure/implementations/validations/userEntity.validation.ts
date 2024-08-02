@@ -1,4 +1,4 @@
-import type  { UserEntityImplLogic } from 'entities/users';
+import type { UserEntityImplLogic } from 'entities/users';
 
 import { HELPERS } from '@core/infrastructure/helpers';
 

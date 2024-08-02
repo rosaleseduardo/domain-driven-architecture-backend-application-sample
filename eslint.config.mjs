@@ -1,4 +1,5 @@
 import pluginImport from 'eslint-plugin-import';
+import prettier from 'eslint-plugin-prettier';
 import simpleImportSort from 'eslint-plugin-simple-import-sort';
 import tsdoc from 'eslint-plugin-tsdoc';
 import globals from 'globals';
@@ -21,6 +22,7 @@ import parserTs from '@typescript-eslint/parser';
  * 4. https://www.npmjs.com/package/@typescript-eslint/parser
  * 5. https://www.npmjs.com/package/@eslint/js
  * 6. https://www.npmjs.com/package/@typescript-eslint/eslint-plugin
+ * 7. https://www.npmjs.com/package/eslint-plugin-prettier
  */
 export default [
   { files: ['**/*.{ts,tsx}'] },
@@ -46,6 +48,7 @@ export default [
       import: pluginImport,
       '@typescript-eslint': pluginTs,
       tsdoc,
+      prettier,
     },
     rules: {
       ...pluginImport.configs.recommended.rules,
@@ -74,37 +77,24 @@ export default [
       'no-undef': 'error',
       'import/no-named-as-default': 'off',
       'import/no-named-as-default-member': 'off',
-      'comma-dangle': [
+      'prefer-arrow-callback': ['error'],
+      'func-style': ['error', 'expression'],
+      'prettier/prettier': [
         'error',
         {
-          arrays: 'always-multiline',
-          objects: 'always-multiline',
-          imports: 'always-multiline',
-          exports: 'always-multiline',
-          functions: 'always-multiline',
+          singleQuote: true,
+          semi: true,
+          tabWidth: 2,
+          arrowParens: 'avoid',
+          printWidth: 80,
+          traillingComma: 'all',
         },
       ],
-      quotes: [
-        'error',
-        'single',
-        { avoidEscape: true, allowTemplateLiterals: true },
-      ],
-      indent: [
-        'error',
-        2,
-        {
-          SwitchCase: 1,
-        },
-      ],
-      semi: ['error', 'always'],
-      'arrow-parens': ['error', 'as-needed'],
       'tsdoc/syntax': 'error',
       '@typescript-eslint/consistent-type-imports': [
         'error',
         { fixStyle: 'separate-type-imports' },
       ],
-      'prefer-arrow-callback': ['error'],
-      'func-style': ['error', 'expression'],
     },
   },
 ];

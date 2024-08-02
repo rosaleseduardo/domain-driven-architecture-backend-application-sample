@@ -1,6 +1,8 @@
 import bcrypt from 'bcrypt';
 import {
-  type User, USER_ENTITY,type UserEntityImplLogic,
+  type User,
+  USER_ENTITY,
+  type UserEntityImplLogic,
 } from 'entities/users';
 
 export class Repository implements UserEntityImplLogic.Crud {

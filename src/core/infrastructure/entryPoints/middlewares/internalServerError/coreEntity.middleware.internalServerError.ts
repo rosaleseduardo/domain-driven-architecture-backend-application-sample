@@ -1,4 +1,4 @@
-import type { NextFunction,Request, Response } from 'express';
+import type { NextFunction, Request, Response } from 'express';
 
 import { CoreEntityEnum } from '@core/domain';
 
@@ -16,7 +16,10 @@ import { CoreEntityEnum } from '@core/domain';
  * #creating-a-custom-error-handling-middleware
  */
 const internalServerError = (
-  err: Error, _req: Request, res: Response, next: NextFunction,
+  err: Error,
+  _req: Request,
+  res: Response,
+  next: NextFunction,
 ): void => {
   res.status(
     res.statusCode !== CoreEntityEnum.SUCCESSFUL_HTTP_STATUS_CODE.OK
@@ -26,16 +29,16 @@ const internalServerError = (
   res.json(
     process.env.NODE_ENV === 'production'
       ? {
-        message: err.message,
-        // @ts-expect-error: This is not introducing a bug
-        cause: err.cause,
-      }
+          message: err.message,
+          // @ts-expect-error: This is not introducing a bug
+          cause: err.cause,
+        }
       : {
-        message: err.message,
-        // @ts-expect-error: This is not introducing a bug
-        cause: err.cause,
-        stackTrace: err.stack,
-      },
+          message: err.message,
+          // @ts-expect-error: This is not introducing a bug
+          cause: err.cause,
+          stackTrace: err.stack,
+        },
   );
 
   next(err);

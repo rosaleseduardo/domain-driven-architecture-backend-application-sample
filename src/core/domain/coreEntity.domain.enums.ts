@@ -1,6 +1,6 @@
 /**
  * Enum representing informational HTTP status codes.
- * 
+ *
  * Reference: https://developer.mozilla.org/en-US/docs/Web/HTTP/
  * Status#information_responses
  */
@@ -117,19 +117,19 @@ export const enum SERVER_ERROR_HTTP_STATUS_CODE {
  */
 export const enum APP_RESPONSE_TYPE {
   /**
-   * SUCCESS: The application response indicating successful operation or 
+   * SUCCESS: The application response indicating successful operation or
    * request.
    */
   SUCESS = 'SUCCESS',
 
   /**
-   * WARNING: The application response indicating a warning or non-critical 
+   * WARNING: The application response indicating a warning or non-critical
    * issue.
    */
   WARNING = 'WARNING',
 
   /**
-   * EXCEPTION: The application response indicating an exception or critical 
+   * EXCEPTION: The application response indicating an exception or critical
    * error.
    */
   EXCEPTION = 'EXCEPTION',

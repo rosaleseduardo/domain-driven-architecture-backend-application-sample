@@ -1,7 +1,7 @@
 import type { User, UserEntityImplLogic } from 'entities/users';
 
 import { ADAPTERS } from '@core/application/adapters';
-import { CoreEntityEnum,type CoreEntityResponse } from '@core/domain';
+import { CoreEntityEnum, type CoreEntityResponse } from '@core/domain';
 import { HELPERS } from '@core/infrastructure/helpers';
 
 export class Crud implements UserEntityImplLogic.CrudResponses {

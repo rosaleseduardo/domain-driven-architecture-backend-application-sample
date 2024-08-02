@@ -1,8 +1,9 @@
 /**
  * Regular expression for validating the format of an email address.
  */
-// eslint-disable-next-line max-len
-const emailFormat = /^[a-zA-Z0-9_.+]+(?<!^[0-9]*)@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/;
+
+const emailFormat =
+  /^[a-zA-Z0-9_.+]+(?<!^[0-9]*)@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/;
 
 /**
  * Validates the format of an email address using a regular expression.

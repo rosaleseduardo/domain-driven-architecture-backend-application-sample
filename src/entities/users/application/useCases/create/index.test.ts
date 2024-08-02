@@ -1,5 +1,7 @@
 import {
-  type User, USER_ENTITY, type UserEntityImplLogic,
+  type User,
+  USER_ENTITY,
+  type UserEntityImplLogic,
 } from 'entities/users';
 
 import {
@@ -43,7 +45,7 @@ describe('Use Case - Create User', () => {
     crudValidationImplementationMock = new MockCrudValidationImplementation();
     crudResponsesImplementationMock = new MockCrudResponsesImplementation();
     crudValidationResponsesImplementationMock =
-    new MockCrudValidationResponsesImplementation();
+      new MockCrudValidationResponsesImplementation();
 
     createUseCase = new Create(
       crudImplementationMock,

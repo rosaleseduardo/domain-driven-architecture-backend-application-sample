@@ -1,4 +1,4 @@
-import type { NextFunction,Request, Response } from 'express';
+import type { NextFunction, Request, Response } from 'express';
 
 import { CoreEntityEnum } from '@core/domain';
 
@@ -11,7 +11,9 @@ import { CoreEntityEnum } from '@core/domain';
  * @param next - The next middleware function.
  */
 const resourceNotFound = (
-  req: Request, res: Response, next: NextFunction,
+  req: Request,
+  res: Response,
+  next: NextFunction,
 ): void => {
   res.status(CoreEntityEnum.CLIENT_ERROR_HTTP_STATUS_CODE.NOT_FOUND).json({
     message: `The requested endpoint '${req.originalUrl}' does not exists`,

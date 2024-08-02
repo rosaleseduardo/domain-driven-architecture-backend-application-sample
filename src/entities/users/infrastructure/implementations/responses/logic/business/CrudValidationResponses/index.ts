@@ -2,10 +2,12 @@
 import type { UserEntityImplLogic } from 'entities/users';
 
 import { ADAPTERS } from '@core/application/adapters';
-import { CoreEntityEnum,type CoreEntityResponse } from '@core/domain';
+import { CoreEntityEnum, type CoreEntityResponse } from '@core/domain';
 import { HELPERS } from '@core/infrastructure/helpers';
 
-export class CrudValidationResponses implements UserEntityImplLogic.CrudValidationResponses {
+export class CrudValidationResponses
+  implements UserEntityImplLogic.CrudValidationResponses
+{
   incompleteInputData(): boolean {
     HELPERS.AppResponseLog.info(
       'BUSINESS_LOGIC - CREATE_USER_DATA_IS_VALID: Not all the properties were provided',
@@ -23,13 +25,17 @@ export class CrudValidationResponses implements UserEntityImplLogic.CrudValidati
   }
 
   invalidEmail(email: string): boolean {
-    HELPERS.AppResponseLog.exception(`Email property value is not valid: ${email}`);
+    HELPERS.AppResponseLog.exception(
+      `Email property value is not valid: ${email}`,
+    );
 
     return false;
   }
 
   invalidName(name: string): boolean {
-    HELPERS.AppResponseLog.exception(`Name property value is no valid: ${name}`);
+    HELPERS.AppResponseLog.exception(
+      `Name property value is no valid: ${name}`,
+    );
 
     return false;
   }
