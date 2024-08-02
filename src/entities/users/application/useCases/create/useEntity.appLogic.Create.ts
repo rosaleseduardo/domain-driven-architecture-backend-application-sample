@@ -4,7 +4,7 @@ import {
   type UserEntityImplLogic,
 } from 'entities/users';
 
-import { ADAPTERS } from '@core/application/adapters';
+import { UnhandledErrorResponse } from '@core/application/adapters';
 import { type CoreEntityResponse } from '@core/domain';
 import {
   ADAPTERS as USER_ADAPTERS,
@@ -53,7 +53,7 @@ export class Create {
         try {
           await this._crudImpl.save(user);
         } catch (error) {
-          return new ADAPTERS.UnhandledErrorResponse(
+          return new UnhandledErrorResponse(
             'CreateUserUseCase',
             error as string,
           ).invoke();

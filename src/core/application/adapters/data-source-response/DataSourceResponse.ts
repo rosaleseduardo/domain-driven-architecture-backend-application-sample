@@ -1,6 +1,6 @@
 import { CoreEntityEnum, type CoreEntityResponse } from '@core/domain';
 
-export const DataSourceResponse = <T>(
+const DataSourceResponse = <T>(
   message: string,
   dataSource: T,
 ): CoreEntityResponse.DataSourceOutput<T> => {
@@ -12,3 +12,5 @@ export const DataSourceResponse = <T>(
     },
   };
 };
+
+export default DataSourceResponse;

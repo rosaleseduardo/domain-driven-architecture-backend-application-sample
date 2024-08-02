@@ -1,6 +1,9 @@
 import type { User, UserEntityImplLogic } from 'entities/users';
 
-import { ADAPTERS } from '@core/application/adapters';
+import {
+  ApplicationFailedResponse,
+  DataSourceResponse,
+} from '@core/application/adapters';
 import { CoreEntityEnum, type CoreEntityResponse } from '@core/domain';
 import { HELPERS } from '@core/infrastructure/helpers';
 
@@ -13,7 +16,7 @@ export class Crud implements UserEntityImplLogic.CrudResponses {
       'APP_LOGIC - CREATE_USER_USE_CASE: A new user has been created successfully',
     );
 
-    return ADAPTERS.DataSourceResponse<Omit<User, 'password'>>(
+    return DataSourceResponse<Omit<User, 'password'>>(
       'A new user has been created successfully',
       dataSource,
     );
@@ -25,7 +28,7 @@ export class Crud implements UserEntityImplLogic.CrudResponses {
       associated to a pre-existing record`,
     );
 
-    return ADAPTERS.ApplicationFailedResponse(
+    return ApplicationFailedResponse(
       CoreEntityEnum.REDIRECTION_HTTP_STATUS_CODE.SEE_OTHER,
       'The information provided is already associated to a pre-existing record',
     );

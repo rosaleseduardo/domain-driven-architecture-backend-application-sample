@@ -1,7 +1,7 @@
 /* eslint-disable max-len */
 import type { UserEntityImplLogic } from 'entities/users';
 
-import { ADAPTERS } from '@core/application/adapters';
+import { ApplicationFailedResponse } from '@core/application/adapters';
 import { CoreEntityEnum, type CoreEntityResponse } from '@core/domain';
 import { HELPERS } from '@core/infrastructure/helpers';
 
@@ -68,7 +68,7 @@ export class CrudValidationResponses
       incomplete or invalid, please verify it`,
     );
 
-    return ADAPTERS.ApplicationFailedResponse(
+    return ApplicationFailedResponse(
       CoreEntityEnum.CLIENT_ERROR_HTTP_STATUS_CODE.BAD_REQUEST,
       'The information provided is incomplete or invalid, please verify it',
     );

@@ -1,9 +1,3 @@
-import { ApplicationFailedResponse } from './ApplicationFailedResponse';
-import { DataSourceResponse } from './DataSourceResponse';
-import { UnhandledErrorResponse } from './UnhandledErrorResponse';
-
-export const ADAPTERS = {
-  ApplicationFailedResponse,
-  DataSourceResponse,
-  UnhandledErrorResponse,
-};
+export * from './application-failed-response';
+export * from './data-source-response';
+export * from './unhandled-error-response';

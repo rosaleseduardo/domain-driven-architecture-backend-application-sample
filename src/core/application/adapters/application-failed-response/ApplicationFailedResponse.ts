@@ -1,6 +1,6 @@
 import { type CoreEntityResponse } from '@core/domain';
 
-export const ApplicationFailedResponse = (
+const ApplicationFailedResponse = (
   httpStatusCode: number,
   message: string,
 ): CoreEntityResponse.ApplicationFailedOutput => {
@@ -11,3 +11,5 @@ export const ApplicationFailedResponse = (
     },
   };
 };
+
+export default ApplicationFailedResponse;

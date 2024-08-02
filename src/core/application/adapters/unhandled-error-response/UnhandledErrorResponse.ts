@@ -1,9 +1,9 @@
 import { CoreEntityEnum, type CoreEntityResponse } from '@core/domain';
 import { HELPERS } from '@core/infrastructure/helpers';
 
-import { ApplicationFailedResponse } from '../ApplicationFailedResponse';
+import { ApplicationFailedResponse } from '../application-failed-response';
 
-export class UnhandledErrorResponse {
+class UnhandledErrorResponse {
   private readonly functionName: string;
   private readonly message: string;
 
@@ -25,3 +25,5 @@ export class UnhandledErrorResponse {
     );
   }
 }
+
+export default UnhandledErrorResponse;
