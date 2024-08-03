@@ -1,5 +1,5 @@
-import { HELPERS } from '@core/infrastructure/helpers';
-import { ExpressServer } from '@core/infrastructure/servers';
+import { HELPERS } from '@core/infrastructure/implementations/helpers';
+import { ExpressServer } from '@core/infrastructure/instances/servers';
 
 export class APIRest {
   server?: ExpressServer;

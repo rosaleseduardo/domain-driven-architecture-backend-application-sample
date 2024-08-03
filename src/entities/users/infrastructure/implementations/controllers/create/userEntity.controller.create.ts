@@ -2,7 +2,7 @@ import { USER_ENTITY } from 'entities/users';
 import type { Request, Response } from 'express';
 
 import { Enum } from '@core/domain/interfaces';
-import { HELPERS } from '@core/infrastructure/helpers';
+import { HELPERS } from '@core/infrastructure/implementations/helpers';
 
 export const create = async (req: Request, res: Response): Promise<void> => {
   try {

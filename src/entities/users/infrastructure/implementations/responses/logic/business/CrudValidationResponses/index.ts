@@ -3,7 +3,7 @@ import type { UserEntityImplLogic } from 'entities/users';
 
 import { ApplicationFailedResponse } from '@core/application/adapters';
 import { Enum, type Response } from '@core/domain/interfaces';
-import { HELPERS } from '@core/infrastructure/helpers';
+import { HELPERS } from '@core/infrastructure/implementations/helpers';
 
 export class CrudValidationResponses
   implements UserEntityImplLogic.CrudValidationResponses

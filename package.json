@@ -8,7 +8,7 @@
     "coverage": "jest --coverage",
     "test:watch": "jest --watch",
     "test:coverage": "jest --coverage --silent",
-    "dev": "ts-node-dev ./src/core/infrastructure/scripts/start/app.script.ts",
+    "dev": "ts-node-dev ./src/core/infrastructure/scripts/start-app/index.ts",
     "prepare": "husky install",
     "lint": "eslint . --report-unused-disable-directives",
     "commit:changes": "git add -A && cz",

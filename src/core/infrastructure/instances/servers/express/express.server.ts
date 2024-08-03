@@ -1,8 +1,8 @@
 import express from 'express';
 import type * as http from 'http';
 
-import { ENDPOINTS, MIDDLEWARES } from '@core/infrastructure/entryPoints';
-import { HELPERS } from '@core/infrastructure/helpers';
+import { ENDPOINTS, MIDDLEWARES } from '@core/infrastructure/entry-points';
+import { HELPERS } from '@core/infrastructure/implementations/helpers';
 
 class ExpressServer {
   private readonly _port: string;

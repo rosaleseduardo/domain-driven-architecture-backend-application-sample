@@ -1,5 +1,5 @@
 import { Enum, type Response } from '@core/domain/interfaces';
-import { HELPERS } from '@core/infrastructure/helpers';
+import { HELPERS } from '@core/infrastructure/implementations/helpers';
 
 import { ApplicationFailedResponse } from '../application-failed-response';
 

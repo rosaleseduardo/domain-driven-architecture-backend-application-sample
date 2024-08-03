@@ -1,7 +1,7 @@
 import * as dotenv from 'dotenv';
 
-import { APIRest } from '@core/infrastructure/entryPoints';
-import { HELPERS } from '@core/infrastructure/helpers';
+import { APIRest } from '@core/infrastructure/entry-points';
+import { HELPERS } from '@core/infrastructure/implementations/helpers';
 
 try {
   dotenv.config();

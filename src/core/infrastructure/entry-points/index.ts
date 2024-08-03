@@ -1,3 +1,3 @@
 export * from './router';
 export * from './middlewares';
-export * from './APIRest';
+export * from '../instances/apis/api-rest';

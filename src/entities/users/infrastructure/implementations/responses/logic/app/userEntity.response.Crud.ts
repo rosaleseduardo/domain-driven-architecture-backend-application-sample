@@ -5,7 +5,7 @@ import {
   DataSourceResponse,
 } from '@core/application/adapters';
 import { Enum, type Response } from '@core/domain/interfaces';
-import { HELPERS } from '@core/infrastructure/helpers';
+import { HELPERS } from '@core/infrastructure/implementations/helpers';
 
 export class Crud implements UserEntityImplLogic.CrudResponses {
   creationSucceeded(
