@@ -1,6 +1,6 @@
 import chalk from 'chalk';
 
-import { CoreEntityEnum, type CoreEntityLog } from '@core/domain';
+import { Enum, type Log } from '@core/domain/interfaces';
 
 /**
  * Defines the background color for successful output.
@@ -21,38 +21,30 @@ const infoOutput = chalk.bgBlueBright;
 
 const success = (message: string): void => {
   console.log(
-    successOutput(
-      `${chalk.bold(CoreEntityEnum.APP_RESPONSE_TYPE.SUCESS)}: ${message}`,
-    ),
+    successOutput(`${chalk.bold(Enum.APP_RESPONSE_TYPE.SUCESS)}: ${message}`),
   );
 };
 
 const warning = (message: string): void => {
   console.log(
-    warningOutput(
-      `${chalk.bold(CoreEntityEnum.APP_RESPONSE_TYPE.WARNING)}: ${message}`,
-    ),
+    warningOutput(`${chalk.bold(Enum.APP_RESPONSE_TYPE.WARNING)}: ${message}`),
   );
 };
 
 const exception = (message: string): void => {
   console.log(
-    errorOutput(
-      `${chalk.bold(CoreEntityEnum.APP_RESPONSE_TYPE.EXCEPTION)}: ${message}`,
-    ),
+    errorOutput(`${chalk.bold(Enum.APP_RESPONSE_TYPE.EXCEPTION)}: ${message}`),
   );
 };
 
 const info = (message: string): void => {
   console.log(
-    infoOutput(
-      `${chalk.bold(CoreEntityEnum.APP_RESPONSE_TYPE.INFO)}: ${message}`,
-    ),
+    infoOutput(`${chalk.bold(Enum.APP_RESPONSE_TYPE.INFO)}: ${message}`),
   );
 };
 
 /** Outputs the response from a process */
-export const AppResponseLog: CoreEntityLog.AppResponseDefinition = {
+export const AppResponseLog: Log.AppResponseDefinition = {
   success,
   warning,
   exception,

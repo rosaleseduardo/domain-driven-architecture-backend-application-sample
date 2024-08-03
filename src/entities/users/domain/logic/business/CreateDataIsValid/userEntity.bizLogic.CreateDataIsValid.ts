@@ -1,6 +1,6 @@
 import type { User, UserEntityImplLogic } from 'entities/users';
 
-import type { CoreEntityResponse } from '@core/domain';
+import type { Response } from '@core/domain/interfaces';
 
 export class CreateDataIsValid {
   private readonly _user: User;
@@ -61,7 +61,7 @@ export class CreateDataIsValid {
     return this._crudValidationResponsesImpl.validInputData();
   }
 
-  failed(): CoreEntityResponse.ApplicationFailedOutput {
+  failed(): Response.ApplicationFailedOutput {
     return this._crudValidationResponsesImpl.invalidInputData();
   }
 }

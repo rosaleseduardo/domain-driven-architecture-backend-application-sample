@@ -1,6 +1,6 @@
 import { USER_ENTITY, type UserEntityImplLogic } from 'entities/users';
 
-import type { CoreEntityResponse } from '@core/domain';
+import type { Response } from '@core/domain/interfaces';
 
 export class RecordPreExists {
   private readonly _implementation: UserEntityImplLogic.Crud;
@@ -9,7 +9,7 @@ export class RecordPreExists {
     this._implementation = implementation;
   }
 
-  async invoke(email: string): Promise<CoreEntityResponse.ApplicationGeneral> {
+  async invoke(email: string): Promise<Response.ApplicationGeneral> {
     const recordPreExists = await this._implementation.recordPreExists(email);
 
     return recordPreExists

@@ -1,4 +1,4 @@
-import type { CoreEntityResponse } from '@core/domain';
+import type { Response } from '@core/domain/interfaces';
 
 /**
  * This is the contract that is going to be signed off in the infrastructure
@@ -11,7 +11,7 @@ export interface CrudValidationResponses {
   completeInputData: () => boolean;
   validPropertyValues: () => boolean;
   validInputData: () => boolean;
-  invalidInputData: () => CoreEntityResponse.ApplicationFailedOutput;
+  invalidInputData: () => Response.ApplicationFailedOutput;
   invalidEmail: (email: string) => boolean;
   invalidName: (name: string) => boolean;
   invalidAge: (age: number) => boolean;

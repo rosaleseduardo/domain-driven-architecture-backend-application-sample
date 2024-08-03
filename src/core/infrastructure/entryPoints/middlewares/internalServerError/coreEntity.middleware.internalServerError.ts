@@ -1,6 +1,6 @@
 import type { NextFunction, Request, Response } from 'express';
 
-import { CoreEntityEnum } from '@core/domain';
+import { Enum } from '@core/domain/interfaces';
 
 /**
  * Handles errors by setting the appropriate status code and returning a JSON
@@ -22,9 +22,9 @@ const internalServerError = (
   next: NextFunction,
 ): void => {
   res.status(
-    res.statusCode !== CoreEntityEnum.SUCCESSFUL_HTTP_STATUS_CODE.OK
+    res.statusCode !== Enum.SUCCESSFUL_HTTP_STATUS_CODE.OK
       ? res.statusCode
-      : CoreEntityEnum.SERVER_ERROR_HTTP_STATUS_CODE.INTERNAL_SERVER_ERROR,
+      : Enum.SERVER_ERROR_HTTP_STATUS_CODE.INTERNAL_SERVER_ERROR,
   );
   res.json(
     process.env.NODE_ENV === 'production'

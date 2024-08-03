@@ -1,9 +1,9 @@
-import { type CoreEntityResponse } from '@core/domain';
+import { type Response } from '@core/domain/interfaces';
 
 const ApplicationFailedResponse = (
   httpStatusCode: number,
   message: string,
-): CoreEntityResponse.ApplicationFailedOutput => {
+): Response.ApplicationFailedOutput => {
   return {
     httpStatusCode,
     data: {

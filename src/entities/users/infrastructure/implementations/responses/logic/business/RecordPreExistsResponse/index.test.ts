@@ -1,10 +1,10 @@
 /* eslint-disable max-len */
-import { CoreEntityEnum } from '@core/domain';
+import { Enum } from '@core/domain/interfaces';
 
 import { RecordPreExistsResponse } from '.';
 
 describe('RecordPreExistsResponse', () => {
-  // let mockHelperAppResponseLog: CoreEntityLog.AppResponseDefinition;
+  // let mockHelperAppResponseLog: Log.AppResponseDefinition;
 
   // beforeEach(() => {
   //   mockHelperAppResponseLog = {
@@ -21,7 +21,7 @@ describe('RecordPreExistsResponse', () => {
     const recordPreExistsResponse = new RecordPreExistsResponse();
 
     const expectedResponse = {
-      httpStatusCode: CoreEntityEnum.REDIRECTION_HTTP_STATUS_CODE.SEE_OTHER,
+      httpStatusCode: Enum.REDIRECTION_HTTP_STATUS_CODE.SEE_OTHER,
       passed: false,
       message: 'The provided record has previously been registered',
     };
@@ -35,7 +35,7 @@ describe('RecordPreExistsResponse', () => {
     const recordPreExistsResponse = new RecordPreExistsResponse();
 
     const expectedResponse = {
-      httpStatusCode: CoreEntityEnum.SUCCESSFUL_HTTP_STATUS_CODE.OK,
+      httpStatusCode: Enum.SUCCESSFUL_HTTP_STATUS_CODE.OK,
       passed: true,
 
       message: `BUSINESS_LOGIC - RECORD_PRE_EXISTS: This record has not been found in

@@ -5,7 +5,7 @@ import {
 } from 'entities/users';
 
 import { UnhandledErrorResponse } from '@core/application/adapters';
-import { type CoreEntityResponse } from '@core/domain';
+import { type Response } from '@core/domain/interfaces';
 import {
   ADAPTERS as USER_ADAPTERS,
   //
@@ -33,8 +33,7 @@ export class Create {
   async invoke(
     user: User,
   ): Promise<
-    | CoreEntityResponse.DataSourceOutput<User>
-    | CoreEntityResponse.ApplicationFailedOutput
+    Response.DataSourceOutput<User> | Response.ApplicationFailedOutput
   > {
     const { BUSINESS_LOGIC } = USER_ENTITY;
     const INCOMING_USER_DATA_IS_VALID = new BUSINESS_LOGIC.CreateDataIsValid(

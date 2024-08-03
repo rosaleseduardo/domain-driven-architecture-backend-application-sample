@@ -1,6 +1,6 @@
 import type { NextFunction, Request, Response } from 'express';
 
-import { CoreEntityEnum } from '@core/domain';
+import { Enum } from '@core/domain/interfaces';
 
 /**
  * Handles requests that do not match any routes by setting the appropriate
@@ -15,7 +15,7 @@ const resourceNotFound = (
   res: Response,
   next: NextFunction,
 ): void => {
-  res.status(CoreEntityEnum.CLIENT_ERROR_HTTP_STATUS_CODE.NOT_FOUND).json({
+  res.status(Enum.CLIENT_ERROR_HTTP_STATUS_CODE.NOT_FOUND).json({
     message: `The requested endpoint '${req.originalUrl}' does not exists`,
   });
 

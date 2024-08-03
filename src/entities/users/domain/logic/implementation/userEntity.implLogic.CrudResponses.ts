@@ -1,6 +1,6 @@
 import type { User } from 'entities/users';
 
-import type { CoreEntityResponse } from '@core/domain';
+import type { Response } from '@core/domain/interfaces';
 
 /**
  * This is the contract that is going to be signed off in the infrastructure
@@ -10,6 +10,6 @@ import type { CoreEntityResponse } from '@core/domain';
 export interface CrudResponses {
   creationSucceeded: (
     dataSource: Omit<User, 'password'>,
-  ) => CoreEntityResponse.DataSourceOutput<Omit<User, 'password'>>;
-  creationFailed: () => CoreEntityResponse.ApplicationFailedOutput;
+  ) => Response.DataSourceOutput<Omit<User, 'password'>>;
+  creationFailed: () => Response.ApplicationFailedOutput;
 }
