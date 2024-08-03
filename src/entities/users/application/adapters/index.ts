@@ -1,4 +1,4 @@
-import { RefineUserEntity } from './RefineUserEntity';
+import { RefineUserEntity } from './refine-user-entity';
 
 export const ADAPTERS = {
   RefineUserEntity,

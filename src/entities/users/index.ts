@@ -1,6 +1,7 @@
+import { ADAPTERS } from './application/adapters';
+import { USE_CASES } from './application/use-cases';
 import { BUSINESS_LOGIC } from './domain/logic/business';
 import { UserValidation } from './infrastructure/implementations/validations';
-import { ADAPTERS, USE_CASES } from './application';
 import {
   BUSINESS_RULES_RESPONSES,
   COLLECTION,
@@ -25,4 +26,5 @@ export const USER_ENTITY = {
   VALIDATION_CRITERIA: UserValidation,
 };
 
-export * from './domain';
+export * from './domain/interfaces';
+export * from './domain/logic';
