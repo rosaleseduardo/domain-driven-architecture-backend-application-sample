@@ -10,7 +10,7 @@ if (fs.existsSync(envFile)) {
   HELPERS.AppResponseLog.info('Starting the app');
   execSync(
     // eslint-disable-next-line max-len
-    'ts-node-dev -r tsconfig-paths/register ./src/core/infrastructure/scripts/start-services/rest-services.ts',
+    'ts-node-dev -r tsconfig-paths/register ./src/core/infrastructure/scripts/start-api-servers/rest-server.ts',
     {
       stdio: 'inherit',
     },
