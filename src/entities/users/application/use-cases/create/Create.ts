@@ -4,12 +4,10 @@ import {
   type UserEntityImplLogic,
 } from 'entities/users';
 
-import { Adapters } from '@core/application';
-import { type Interfaces } from '@core/domain';
-import {
-  ADAPTERS as USER_ADAPTERS,
-  //
-} from '@entities/users/application/adapters';
+import { Adapters as CoreAdapters } from '@core/application';
+import type { Interfaces } from '@core/domain';
+
+import { Adapters as UsersAdapters } from '../../adapters';
 
 export class Create {
   private readonly _crudImpl: UserEntityImplLogic.Crud;
@@ -36,7 +34,8 @@ export class Create {
     | Interfaces.Response.DataSourceOutput<User>
     | Interfaces.Response.ApplicationFailedOutput
   > {
-    const { UnhandledErrorResponse } = Adapters;
+    const { UnhandledErrorResponse } = CoreAdapters;
+    const { RefineUserEntity } = UsersAdapters;
 
     const { BUSINESS_LOGIC } = USER_ENTITY;
     const INCOMING_USER_DATA_IS_VALID = new BUSINESS_LOGIC.CreateDataIsValid(
@@ -62,7 +61,7 @@ export class Create {
         }
 
         return this._crudResponsesImpl.creationSucceeded(
-          USER_ADAPTERS.RefineUserEntity(user),
+          RefineUserEntity(user),
         );
       }
 

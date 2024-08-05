@@ -1,5 +1,5 @@
 import { Create } from './create';
 
-export const USE_CASES = {
+export const UseCases = {
   Create,
 };

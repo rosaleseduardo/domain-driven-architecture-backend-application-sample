@@ -1,5 +1,5 @@
 import { create } from './create';
 
-export const CONTROLLERS = {
+export const Contollers = {
   create,
 };

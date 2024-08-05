@@ -1,1 +1,1 @@
-export * from './userEntity.controller.create';
+export * from './create';
