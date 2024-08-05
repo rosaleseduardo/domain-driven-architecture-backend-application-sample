@@ -1,15 +1,15 @@
 import { Implementations } from '@core/infrastructure';
-import { ExpressServer } from '@core/infrastructure/instances/servers';
+import { Express } from '@core/infrastructure/instances/servers';
 
-export class APIRest {
-  server?: ExpressServer;
+export class Rest {
+  server?: Express;
 
   async start(): Promise<void> {
     const { Helpers } = Implementations;
 
     const port = process.env.SERVER_PORT as string;
 
-    this.server = new ExpressServer(port);
+    this.server = new Express(port);
 
     try {
       await this.server.listen().then(() => {

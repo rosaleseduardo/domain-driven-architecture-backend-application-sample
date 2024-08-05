@@ -3,7 +3,7 @@ import type * as http from 'http';
 
 import { EntryPoints, Implementations } from '@core/infrastructure';
 
-class ExpressServer {
+class Express {
   private readonly _port: string;
   private readonly _app: express.Express;
   private _httpServer?: http.Server;
@@ -71,4 +71,4 @@ class ExpressServer {
   }
 }
 
-export default ExpressServer;
+export default Express;

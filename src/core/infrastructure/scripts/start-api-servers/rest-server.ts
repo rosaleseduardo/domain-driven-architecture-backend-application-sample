@@ -2,12 +2,14 @@ import * as dotenv from 'dotenv';
 
 import { Implementations } from '@core/infrastructure';
 
-import { APIRest } from '../../instances';
+import { Instances } from '../../instances';
 
 try {
   dotenv.config();
 
-  void new APIRest().start();
+  const { apis } = Instances;
+
+  void new apis.Rest().start();
 } catch (err) {
   const { Helpers } = Implementations;
 

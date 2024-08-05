@@ -1,1 +1,1 @@
-export * from './coreEntity.dbClient.mongo';
+export * from './mongo';

@@ -1,5 +1,5 @@
 import { Enums, type Interfaces } from '../../../domain';
-import { HELPERS } from '../../../infrastructure/implementations/helpers';
+import { Implementations } from '../../../infrastructure';
 import { ApplicationFailedResponse } from '../application-failed-response';
 
 class UnhandledErrorResponse {
@@ -12,7 +12,9 @@ class UnhandledErrorResponse {
   }
 
   invoke(): Interfaces.Response.ApplicationFailedOutput {
-    HELPERS.AppResponseLog.exception(
+    const { Helpers } = Implementations;
+
+    Helpers.AppResponseLog.exception(
       // eslint-disable-next-line max-len
       `An unhandled error has happened on ${this.functionName}. Details: ${this.message}`,
     );
