@@ -1,1 +1,1 @@
-export { default as ENDPOINTS } from './router';
+export { default as Router } from './router';

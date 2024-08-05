@@ -1,7 +1,7 @@
 import express from 'express';
 import type * as http from 'http';
 
-import { ENDPOINTS, MIDDLEWARES } from '@core/infrastructure/entry-points';
+import { EntryPoints } from '@core/infrastructure';
 import { HELPERS } from '@core/infrastructure/implementations/helpers';
 
 class ExpressServer {
@@ -12,9 +12,9 @@ class ExpressServer {
   constructor(port: string) {
     this._port = port;
     this._app = express();
-    this._app.use(MIDDLEWARES.CORS);
-    this._app.use(MIDDLEWARES.MORGAN);
-    this._app.use(MIDDLEWARES.HELMET);
+    this._app.use(EntryPoints.Middlewares.cors);
+    this._app.use(EntryPoints.Middlewares.morgan);
+    this._app.use(EntryPoints.Middlewares.helmet);
     /**
      * It is a built-in middleware function in the Express framework for Node.js
      *
@@ -37,10 +37,10 @@ class ExpressServer {
      */
     this._app.use(express.urlencoded({ extended: false }));
 
-    this._app.use('/api', ENDPOINTS);
+    this._app.use('/api', EntryPoints.Router);
 
-    this._app.use(MIDDLEWARES.RESOURCE_NOT_FOUND);
-    this._app.use(MIDDLEWARES.INTERNAL_SERVER_ERROR);
+    this._app.use(EntryPoints.Middlewares.resourceNotFound);
+    this._app.use(EntryPoints.Middlewares.internalServerError);
   }
 
   async listen(): Promise<void> {

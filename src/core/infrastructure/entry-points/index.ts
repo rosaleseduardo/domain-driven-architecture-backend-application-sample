@@ -1,3 +1,7 @@
-export * from './router';
-export * from './middlewares';
-export * from '../instances/apis/api-rest';
+import { Middlewares } from './middlewares';
+import { Router } from './router';
+
+export const EntryPoints = {
+  Middlewares,
+  Router,
+};
