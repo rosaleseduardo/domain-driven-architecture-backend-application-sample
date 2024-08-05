@@ -5,6 +5,7 @@ import { Enums } from '@core/domain';
 import { Implementations } from '@core/infrastructure';
 
 import { UseCases } from '../../../../application';
+import { UserValidation } from '../../validations';
 
 export const create = async (req: Request, res: Response): Promise<void> => {
   const { Helpers } = Implementations;
@@ -12,7 +13,7 @@ export const create = async (req: Request, res: Response): Promise<void> => {
   try {
     const useCaseCreateUser = await new UseCases.Create(
       new USER_ENTITY.REPOSITORY(),
-      new USER_ENTITY.VALIDATION_CRITERIA(),
+      new UserValidation(),
       new USER_ENTITY.RESPONSES.CRUD_RESPONSES(),
       new USER_ENTITY.RESPONSES.CRUD_VALIDATION(),
     ).invoke(req.body);

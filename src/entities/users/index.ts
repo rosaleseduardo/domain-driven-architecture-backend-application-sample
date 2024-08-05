@@ -1,5 +1,4 @@
 import { BUSINESS_LOGIC } from './domain/logic/business';
-import { UserValidation } from './infrastructure/implementations/validations';
 import {
   BUSINESS_RULES_RESPONSES,
   COLLECTION,
@@ -17,7 +16,6 @@ export const USER_ENTITY = {
     ...BUSINESS_RULES_RESPONSES,
     CRUD_RESPONSES,
   },
-  VALIDATION_CRITERIA: UserValidation,
 };
 
 export * from './domain/interfaces';
