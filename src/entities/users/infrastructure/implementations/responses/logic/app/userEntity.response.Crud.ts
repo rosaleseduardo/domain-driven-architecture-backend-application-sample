@@ -1,16 +1,15 @@
 import type { User, UserEntityImplLogic } from 'entities/users';
 
-import {
-  ApplicationFailedResponse,
-  DataSourceResponse,
-} from '@core/application/adapters';
-import { Enum, type Response } from '@core/domain/interfaces';
+import { Adapters } from '@core/application';
+import { Enums, type Interfaces } from '@core/domain';
 import { HELPERS } from '@core/infrastructure/implementations/helpers';
 
 export class Crud implements UserEntityImplLogic.CrudResponses {
   creationSucceeded(
     dataSource: Omit<User, 'password'>,
-  ): Response.DataSourceOutput<Omit<User, 'password'>> {
+  ): Interfaces.Response.DataSourceOutput<Omit<User, 'password'>> {
+    const { DataSourceResponse } = Adapters;
+
     HELPERS.AppResponseLog.success(
       // eslint-disable-next-line max-len
       'APP_LOGIC - CREATE_USER_USE_CASE: A new user has been created successfully',
@@ -22,14 +21,16 @@ export class Crud implements UserEntityImplLogic.CrudResponses {
     );
   }
 
-  creationFailed(): Response.ApplicationFailedOutput {
+  creationFailed(): Interfaces.Response.ApplicationFailedOutput {
+    const { ApplicationFailedResponse } = Adapters;
+
     HELPERS.AppResponseLog.warning(
       `APP_LOGIC - CREATE_USER_USE_CASE: The information provided is already
       associated to a pre-existing record`,
     );
 
     return ApplicationFailedResponse(
-      Enum.REDIRECTION_HTTP_STATUS_CODE.SEE_OTHER,
+      Enums.REDIRECTION_HTTP_STATUS_CODE.SEE_OTHER,
       'The information provided is already associated to a pre-existing record',
     );
   }

@@ -1,10 +1,10 @@
-import { Enum, type Response } from '@core/domain/interfaces';
+import { Enums, type Interfaces } from '@core/domain';
 import { HELPERS } from '@core/infrastructure/implementations/helpers';
 
 export class RecordPreExistsResponse {
-  found(): Response.ApplicationGeneral {
+  found(): Interfaces.Response.ApplicationGeneral {
     const process = {
-      httpStatusCode: Enum.REDIRECTION_HTTP_STATUS_CODE.SEE_OTHER,
+      httpStatusCode: Enums.REDIRECTION_HTTP_STATUS_CODE.SEE_OTHER,
       passed: false,
       message: 'The provided record has previously been registered',
     };
@@ -17,9 +17,9 @@ export class RecordPreExistsResponse {
     return process;
   }
 
-  notFound(): Response.ApplicationGeneral {
+  notFound(): Interfaces.Response.ApplicationGeneral {
     const process = {
-      httpStatusCode: Enum.SUCCESSFUL_HTTP_STATUS_CODE.OK,
+      httpStatusCode: Enums.SUCCESSFUL_HTTP_STATUS_CODE.OK,
       passed: true,
       // eslint-disable-next-line max-len
       message: `BUSINESS_LOGIC - RECORD_PRE_EXISTS: This record has not been found in our records. The process can continue.`,

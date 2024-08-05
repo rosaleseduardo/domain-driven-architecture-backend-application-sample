@@ -1,12 +1,12 @@
 /* eslint-disable max-len */
-import { Enum } from '@core/domain/interfaces';
+import { Enums } from '../../../domain';
 
 import { ApplicationFailedResponse } from '.';
 
 describe('Adapter - ApplicationFailedResponse', () => {
   it('Should return an object with the form of ApplicationFailedResponseOutput', () => {
     const response = ApplicationFailedResponse(
-      Enum.REDIRECTION_HTTP_STATUS_CODE.SEE_OTHER,
+      Enums.REDIRECTION_HTTP_STATUS_CODE.SEE_OTHER,
 
       'The information provided is already associated to a pre-existing record',
     );

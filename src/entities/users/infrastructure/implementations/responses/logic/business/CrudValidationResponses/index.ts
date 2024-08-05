@@ -1,8 +1,8 @@
 /* eslint-disable max-len */
 import type { UserEntityImplLogic } from 'entities/users';
 
-import { ApplicationFailedResponse } from '@core/application/adapters';
-import { Enum, type Response } from '@core/domain/interfaces';
+import { Adapters } from '@core/application';
+import { Enums, type Interfaces } from '@core/domain';
 import { HELPERS } from '@core/infrastructure/implementations/helpers';
 
 export class CrudValidationResponses
@@ -62,14 +62,16 @@ export class CrudValidationResponses
     return true;
   }
 
-  invalidInputData(): Response.ApplicationFailedOutput {
+  invalidInputData(): Interfaces.Response.ApplicationFailedOutput {
+    const { ApplicationFailedResponse } = Adapters;
+
     HELPERS.AppResponseLog.exception(
       `BUSINESS_LOGIC - CREATE_USER_DATA_IS_VALID: The information provided is
       incomplete or invalid, please verify it`,
     );
 
     return ApplicationFailedResponse(
-      Enum.CLIENT_ERROR_HTTP_STATUS_CODE.BAD_REQUEST,
+      Enums.CLIENT_ERROR_HTTP_STATUS_CODE.BAD_REQUEST,
       'The information provided is incomplete or invalid, please verify it',
     );
   }

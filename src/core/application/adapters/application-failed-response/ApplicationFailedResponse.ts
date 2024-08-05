@@ -1,9 +1,9 @@
-import { type Response } from '@core/domain/interfaces';
+import { type Interfaces } from '../../../domain';
 
 const ApplicationFailedResponse = (
   httpStatusCode: number,
   message: string,
-): Response.ApplicationFailedOutput => {
+): Interfaces.Response.ApplicationFailedOutput => {
   return {
     httpStatusCode,
     data: {

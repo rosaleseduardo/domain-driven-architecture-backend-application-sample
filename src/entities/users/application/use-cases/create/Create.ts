@@ -4,8 +4,8 @@ import {
   type UserEntityImplLogic,
 } from 'entities/users';
 
-import { UnhandledErrorResponse } from '@core/application/adapters';
-import { type Response } from '@core/domain/interfaces';
+import { Adapters } from '@core/application';
+import { type Interfaces } from '@core/domain';
 import {
   ADAPTERS as USER_ADAPTERS,
   //
@@ -33,8 +33,11 @@ export class Create {
   async invoke(
     user: User,
   ): Promise<
-    Response.DataSourceOutput<User> | Response.ApplicationFailedOutput
+    | Interfaces.Response.DataSourceOutput<User>
+    | Interfaces.Response.ApplicationFailedOutput
   > {
+    const { UnhandledErrorResponse } = Adapters;
+
     const { BUSINESS_LOGIC } = USER_ENTITY;
     const INCOMING_USER_DATA_IS_VALID = new BUSINESS_LOGIC.CreateDataIsValid(
       user,

@@ -1,5 +1,5 @@
 /* eslint-disable max-len */
-import { Enum } from '@core/domain/interfaces';
+import { Enums } from '@core/domain';
 
 import { RecordPreExistsResponse } from '.';
 
@@ -21,7 +21,7 @@ describe('RecordPreExistsResponse', () => {
     const recordPreExistsResponse = new RecordPreExistsResponse();
 
     const expectedResponse = {
-      httpStatusCode: Enum.REDIRECTION_HTTP_STATUS_CODE.SEE_OTHER,
+      httpStatusCode: Enums.REDIRECTION_HTTP_STATUS_CODE.SEE_OTHER,
       passed: false,
       message: 'The provided record has previously been registered',
     };
@@ -35,7 +35,7 @@ describe('RecordPreExistsResponse', () => {
     const recordPreExistsResponse = new RecordPreExistsResponse();
 
     const expectedResponse = {
-      httpStatusCode: Enum.SUCCESSFUL_HTTP_STATUS_CODE.OK,
+      httpStatusCode: Enums.SUCCESSFUL_HTTP_STATUS_CODE.OK,
       passed: true,
 
       message: `BUSINESS_LOGIC - RECORD_PRE_EXISTS: This record has not been found in

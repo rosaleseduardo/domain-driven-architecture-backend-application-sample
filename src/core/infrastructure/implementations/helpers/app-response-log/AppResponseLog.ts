@@ -1,6 +1,6 @@
 import chalk from 'chalk';
 
-import { Enum, type Log } from '@core/domain/interfaces';
+import { Enums, type Interfaces } from '@core/domain';
 
 /**
  * Defines the background color for successful output.
@@ -21,30 +21,30 @@ const infoOutput = chalk.bgBlueBright;
 
 const success = (message: string): void => {
   console.log(
-    successOutput(`${chalk.bold(Enum.APP_RESPONSE_TYPE.SUCESS)}: ${message}`),
+    successOutput(`${chalk.bold(Enums.APP_RESPONSE_TYPE.SUCESS)}: ${message}`),
   );
 };
 
 const warning = (message: string): void => {
   console.log(
-    warningOutput(`${chalk.bold(Enum.APP_RESPONSE_TYPE.WARNING)}: ${message}`),
+    warningOutput(`${chalk.bold(Enums.APP_RESPONSE_TYPE.WARNING)}: ${message}`),
   );
 };
 
 const exception = (message: string): void => {
   console.log(
-    errorOutput(`${chalk.bold(Enum.APP_RESPONSE_TYPE.EXCEPTION)}: ${message}`),
+    errorOutput(`${chalk.bold(Enums.APP_RESPONSE_TYPE.EXCEPTION)}: ${message}`),
   );
 };
 
 const info = (message: string): void => {
   console.log(
-    infoOutput(`${chalk.bold(Enum.APP_RESPONSE_TYPE.INFO)}: ${message}`),
+    infoOutput(`${chalk.bold(Enums.APP_RESPONSE_TYPE.INFO)}: ${message}`),
   );
 };
 
 /** Outputs the response from a process */
-export const AppResponseLog: Log.AppResponseDefinition = {
+export const AppResponseLog: Interfaces.Log.AppResponseDefinition = {
   success,
   warning,
   exception,

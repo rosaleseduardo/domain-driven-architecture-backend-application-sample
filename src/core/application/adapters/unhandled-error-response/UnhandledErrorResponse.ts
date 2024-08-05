@@ -1,6 +1,5 @@
-import { Enum, type Response } from '@core/domain/interfaces';
-import { HELPERS } from '@core/infrastructure/implementations/helpers';
-
+import { Enums, type Interfaces } from '../../../domain';
+import { HELPERS } from '../../../infrastructure/implementations/helpers';
 import { ApplicationFailedResponse } from '../application-failed-response';
 
 class UnhandledErrorResponse {
@@ -12,14 +11,14 @@ class UnhandledErrorResponse {
     this.functionName = functionName;
   }
 
-  invoke(): Response.ApplicationFailedOutput {
+  invoke(): Interfaces.Response.ApplicationFailedOutput {
     HELPERS.AppResponseLog.exception(
       // eslint-disable-next-line max-len
       `An unhandled error has happened on ${this.functionName}. Details: ${this.message}`,
     );
 
     return ApplicationFailedResponse(
-      Enum.SERVER_ERROR_HTTP_STATUS_CODE.INTERNAL_SERVER_ERROR,
+      Enums.SERVER_ERROR_HTTP_STATUS_CODE.INTERNAL_SERVER_ERROR,
       // eslint-disable-next-line max-len
       `An unhandled error has happened on ${this.functionName}. Details: ${this.message}`,
     );

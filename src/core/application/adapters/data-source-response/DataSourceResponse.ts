@@ -1,11 +1,11 @@
-import { Enum, type Response } from '@core/domain/interfaces';
+import { Enums, type Interfaces } from '../../../domain';
 
 const DataSourceResponse = <T>(
   message: string,
   dataSource: T,
-): Response.DataSourceOutput<T> => {
+): Interfaces.Response.DataSourceOutput<T> => {
   return {
-    httpStatusCode: Enum.SUCCESSFUL_HTTP_STATUS_CODE.CREATED,
+    httpStatusCode: Enums.SUCCESSFUL_HTTP_STATUS_CODE.CREATED,
     data: {
       message,
       dataSource,
