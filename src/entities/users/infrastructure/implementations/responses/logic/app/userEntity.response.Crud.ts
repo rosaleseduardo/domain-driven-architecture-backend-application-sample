@@ -1,13 +1,18 @@
-import type { User, UserEntityImplLogic } from 'entities/users';
-
 import { Adapters } from '@core/application';
-import { Enums, type Interfaces } from '@core/domain';
+import { Enums, type Interfaces as CoreInterfaces } from '@core/domain';
 import { Implementations } from '@core/infrastructure';
 
-export class Crud implements UserEntityImplLogic.CrudResponses {
+import type {
+  ImplLogic,
+  Interfaces as UsersInterfaces,
+} from '../../../../../domain';
+
+export class Crud implements ImplLogic.CrudResponses {
   creationSucceeded(
-    dataSource: Omit<User, 'password'>,
-  ): Interfaces.Response.DataSourceOutput<Omit<User, 'password'>> {
+    dataSource: Omit<UsersInterfaces.User, 'password'>,
+  ): CoreInterfaces.Response.DataSourceOutput<
+    Omit<UsersInterfaces.User, 'password'>
+  > {
     const { Helpers } = Implementations;
     const { DataSourceResponse } = Adapters;
 
@@ -16,13 +21,13 @@ export class Crud implements UserEntityImplLogic.CrudResponses {
       'APP_LOGIC - CREATE_USER_USE_CASE: A new user has been created successfully',
     );
 
-    return DataSourceResponse<Omit<User, 'password'>>(
+    return DataSourceResponse<Omit<UsersInterfaces.User, 'password'>>(
       'A new user has been created successfully',
       dataSource,
     );
   }
 
-  creationFailed(): Interfaces.Response.ApplicationFailedOutput {
+  creationFailed(): CoreInterfaces.Response.ApplicationFailedOutput {
     const { Helpers } = Implementations;
     const { ApplicationFailedResponse } = Adapters;
 

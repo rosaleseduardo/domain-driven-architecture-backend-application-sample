@@ -1,11 +1,11 @@
 /* eslint-disable max-len */
-import type { User } from 'entities/users';
+import type { Interfaces } from '@entities/users/domain';
 
 import { DataSourceResponse } from '.';
 
 describe('Adapter - DataSourceResponse', () => {
   it('It should return an object with the form of DataSourceResponseOutput', () => {
-    const dataSource: User = {
+    const dataSource: Interfaces.User = {
       email: 'test@gmail.com',
       password: '1234',
       name: 'TestName',

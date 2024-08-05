@@ -1,7 +1,7 @@
-import type { UserEntityImplLogic } from 'entities/users';
-
 import { Implementations } from '@core/infrastructure';
-export class UserValidation implements UserEntityImplLogic.CrudValidation {
+
+import type { ImplLogic } from '../../../domain';
+export class UserValidation implements ImplLogic.CrudValidation {
   isValidEmail(email: string): boolean {
     const { Helpers } = Implementations;
 

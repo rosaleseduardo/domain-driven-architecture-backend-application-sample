@@ -1,1 +1,2 @@
-export * as UserEntityImplLogic from './implementation';
+export * as BusinessLogic from './business';
+export * as ImplLogic from './implementation';

@@ -1,4 +1,4 @@
-import { type User } from 'entities/users';
+import type { Interfaces } from '../../../domain';
 
 /**
  * This is the contract that is going to be signed off in the infrastructure
@@ -6,6 +6,6 @@ import { type User } from 'entities/users';
  * to the required resource
  */
 export interface Crud {
-  save: (user: User) => Promise<void>;
+  save: (user: Interfaces.User) => Promise<void>;
   recordPreExists: (email: string) => Promise<boolean>;
 }

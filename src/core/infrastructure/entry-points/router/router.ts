@@ -1,8 +1,9 @@
-import { Router } from 'express';
-import { USER_ENTITY } from 'entities/users';
+import { Router as ExpressRouter } from 'express';
 
-const ROUTER = Router();
+import { Router as UsersRouter } from '@entities/users/infrastructure';
 
-ROUTER.use('/users', USER_ENTITY.ROUTER);
+const Router = ExpressRouter();
 
-export default ROUTER;
+Router.use('/users', UsersRouter);
+
+export default Router;

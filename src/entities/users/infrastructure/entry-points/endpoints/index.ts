@@ -1,1 +1,1 @@
-export { default as ROUTER } from './userEntity.router';
+export { default as Router } from './userEntity.router';

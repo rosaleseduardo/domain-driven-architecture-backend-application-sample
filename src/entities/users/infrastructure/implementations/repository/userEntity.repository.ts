@@ -1,10 +1,10 @@
 import bcrypt from 'bcrypt';
-import { type User, type UserEntityImplLogic } from 'entities/users';
 
+import type { ImplLogic, Interfaces } from '../../../domain';
 import { Collection } from '../../instances';
 
-export class Repository implements UserEntityImplLogic.Crud {
-  async save(user: User): Promise<void> {
+export class Repository implements ImplLogic.Crud {
+  async save(user: Interfaces.User): Promise<void> {
     const hashedPassword = await bcrypt.hash(user.password, 10);
 
     await Collection.insertOne({

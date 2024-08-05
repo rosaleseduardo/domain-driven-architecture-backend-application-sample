@@ -1,26 +1,25 @@
-import {
-  type User,
-  USER_ENTITY,
-  type UserEntityImplLogic,
-} from 'entities/users';
-
 import { Adapters as CoreAdapters } from '@core/application';
-import type { Interfaces } from '@core/domain';
+import type { Interfaces as CoreInterfaces } from '@core/domain';
 
+import {
+  BusinessLogic,
+  type ImplLogic,
+  type Interfaces as UsersInterfaces,
+} from '../../../domain';
 import { Adapters as UsersAdapters } from '../../adapters';
 
 export class Create {
-  private readonly _crudImpl: UserEntityImplLogic.Crud;
-  private readonly _crudValidationImpl: UserEntityImplLogic.CrudValidation;
-  private readonly _crudResponsesImpl: UserEntityImplLogic.CrudResponses;
+  private readonly _crudImpl: ImplLogic.Crud;
+  private readonly _crudValidationImpl: ImplLogic.CrudValidation;
+  private readonly _crudResponsesImpl: ImplLogic.CrudResponses;
   // eslint-disable-next-line max-len
-  private readonly _crudValidationResponsesImpl: UserEntityImplLogic.CrudValidationResponses;
+  private readonly _crudValidationResponsesImpl: ImplLogic.CrudValidationResponses;
 
   constructor(
-    crudImpl: UserEntityImplLogic.Crud,
-    crudValidationImpl: UserEntityImplLogic.CrudValidation,
-    crudResponsesImpl: UserEntityImplLogic.CrudResponses,
-    crudValidationResponsesImpl: UserEntityImplLogic.CrudValidationResponses,
+    crudImpl: ImplLogic.Crud,
+    crudValidationImpl: ImplLogic.CrudValidation,
+    crudResponsesImpl: ImplLogic.CrudResponses,
+    crudValidationResponsesImpl: ImplLogic.CrudValidationResponses,
   ) {
     this._crudImpl = crudImpl;
     this._crudValidationImpl = crudValidationImpl;
@@ -29,24 +28,22 @@ export class Create {
   }
 
   async invoke(
-    user: User,
+    user: UsersInterfaces.User,
   ): Promise<
-    | Interfaces.Response.DataSourceOutput<User>
-    | Interfaces.Response.ApplicationFailedOutput
+    | CoreInterfaces.Response.DataSourceOutput<UsersInterfaces.User>
+    | CoreInterfaces.Response.ApplicationFailedOutput
   > {
     const { UnhandledErrorResponse } = CoreAdapters;
     const { RefineUserEntity } = UsersAdapters;
 
-    const { BUSINESS_LOGIC } = USER_ENTITY;
-    const INCOMING_USER_DATA_IS_VALID = new BUSINESS_LOGIC.CreateDataIsValid(
+    const INCOMING_USER_DATA_IS_VALID = new BusinessLogic.CreateDataIsValid(
       user,
       this._crudValidationImpl,
       this._crudValidationResponsesImpl,
     );
 
     if (INCOMING_USER_DATA_IS_VALID.invoke()) {
-      const { BUSINESS_LOGIC } = USER_ENTITY;
-      const recordPreExists = await new BUSINESS_LOGIC.RecordPreExists(
+      const recordPreExists = await new BusinessLogic.RecordPreExists(
         this._crudImpl,
       ).invoke(user.email);
 

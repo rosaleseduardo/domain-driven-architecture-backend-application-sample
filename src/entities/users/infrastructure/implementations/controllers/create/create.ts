@@ -1,10 +1,11 @@
-import { USER_ENTITY } from 'entities/users';
 import type { Request, Response } from 'express';
 
 import { Enums } from '@core/domain';
 import { Implementations } from '@core/infrastructure';
 
 import { UseCases } from '../../../../application';
+import { Repository } from '../../repository';
+import { BUSINESS_RULES_RESPONSES, CRUD_RESPONSES } from '../../responses';
 import { UserValidation } from '../../validations';
 
 export const create = async (req: Request, res: Response): Promise<void> => {
@@ -12,10 +13,10 @@ export const create = async (req: Request, res: Response): Promise<void> => {
 
   try {
     const useCaseCreateUser = await new UseCases.Create(
-      new USER_ENTITY.REPOSITORY(),
+      new Repository(),
       new UserValidation(),
-      new USER_ENTITY.RESPONSES.CRUD_RESPONSES(),
-      new USER_ENTITY.RESPONSES.CRUD_VALIDATION(),
+      new CRUD_RESPONSES(),
+      new BUSINESS_RULES_RESPONSES.CRUD_VALIDATION(),
     ).invoke(req.body);
 
     res

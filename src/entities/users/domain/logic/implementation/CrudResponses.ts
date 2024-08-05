@@ -1,6 +1,6 @@
-import type { User } from 'entities/users';
+import type { Interfaces as CoreInterfaces } from '@core/domain';
 
-import type { Interfaces } from '@core/domain';
+import type { Interfaces as UsersInterfaces } from '../../../domain';
 
 /**
  * This is the contract that is going to be signed off in the infrastructure
@@ -9,7 +9,9 @@ import type { Interfaces } from '@core/domain';
  */
 export interface CrudResponses {
   creationSucceeded: (
-    dataSource: Omit<User, 'password'>,
-  ) => Interfaces.Response.DataSourceOutput<Omit<User, 'password'>>;
-  creationFailed: () => Interfaces.Response.ApplicationFailedOutput;
+    dataSource: Omit<UsersInterfaces.User, 'password'>,
+  ) => CoreInterfaces.Response.DataSourceOutput<
+    Omit<UsersInterfaces.User, 'password'>
+  >;
+  creationFailed: () => CoreInterfaces.Response.ApplicationFailedOutput;
 }

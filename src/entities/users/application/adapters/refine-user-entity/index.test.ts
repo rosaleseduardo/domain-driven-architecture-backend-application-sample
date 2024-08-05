@@ -1,17 +1,17 @@
-import type { User } from 'entities/users';
+import type { Interfaces } from '@entities/users/domain';
 
 import { RefineUserEntity } from '.';
 
 describe('Adapter - DataSourceResponse', () => {
   it('It should return an User object without the password', () => {
-    const user: User = {
+    const user: Interfaces.User = {
       email: 'test@gmail.com',
       password: '1234',
       name: 'TestName',
       age: 18,
     };
 
-    const mockResponse: Omit<User, 'password'> = {
+    const mockResponse: Omit<Interfaces.User, 'password'> = {
       id: undefined,
       email: 'test@gmail.com',
       name: 'TestName',

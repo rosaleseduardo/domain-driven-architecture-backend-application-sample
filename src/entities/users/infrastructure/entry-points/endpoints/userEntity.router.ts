@@ -1,18 +1,18 @@
-import { Router } from 'express';
+import { Router as ExpressRouter } from 'express';
 
 import { Contollers } from '../../implementations';
 
-const ROUTER = Router();
+const Router = ExpressRouter();
 
-ROUTER.get('/', (_req, res) => {
+Router.get('/', (_req, res) => {
   res.json({ message: 'Obteniendo el recurso de usuarios' });
 });
-ROUTER.post('/', Contollers.create);
-ROUTER.put('/', (_req, res) => {
+Router.post('/', Contollers.create);
+Router.put('/', (_req, res) => {
   res.json({ message: 'Modificando el recurso de usuarios' });
 });
-ROUTER.delete('/', (_req, res) => {
+Router.delete('/', (_req, res) => {
   res.json({ messaje: 'Eliminando un nuevo recurso de usuarios' });
 });
 
-export default ROUTER;
+export default Router;

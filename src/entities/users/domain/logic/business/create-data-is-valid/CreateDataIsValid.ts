@@ -1,17 +1,20 @@
-import type { User, UserEntityImplLogic } from 'entities/users';
+import type { Interfaces as CoreInterfaces } from '@core/domain';
 
-import type { Interfaces } from '@core/domain';
+import type {
+  ImplLogic,
+  Interfaces as UsersInterfaces,
+} from '../../../../domain';
 
 export class CreateDataIsValid {
-  private readonly _user: User;
-  private readonly _crudValidationImpl: UserEntityImplLogic.CrudValidation;
+  private readonly _user: UsersInterfaces.User;
+  private readonly _crudValidationImpl: ImplLogic.CrudValidation;
   // eslint-disable-next-line max-len
-  private readonly _crudValidationResponsesImpl: UserEntityImplLogic.CrudValidationResponses;
+  private readonly _crudValidationResponsesImpl: ImplLogic.CrudValidationResponses;
 
   constructor(
-    user: User,
-    crudValidationImpl: UserEntityImplLogic.CrudValidation,
-    crudValidationResponsesImpl: UserEntityImplLogic.CrudValidationResponses,
+    user: UsersInterfaces.User,
+    crudValidationImpl: ImplLogic.CrudValidation,
+    crudValidationResponsesImpl: ImplLogic.CrudValidationResponses,
   ) {
     this._user = user;
     this._crudValidationImpl = crudValidationImpl;
@@ -19,7 +22,7 @@ export class CreateDataIsValid {
   }
 
   propertiesWereProvided(): boolean {
-    const sampleUser: User = {
+    const sampleUser: UsersInterfaces.User = {
       email: '',
       password: '',
       name: '',
@@ -61,7 +64,7 @@ export class CreateDataIsValid {
     return this._crudValidationResponsesImpl.validInputData();
   }
 
-  failed(): Interfaces.Response.ApplicationFailedOutput {
+  failed(): CoreInterfaces.Response.ApplicationFailedOutput {
     return this._crudValidationResponsesImpl.invalidInputData();
   }
 }

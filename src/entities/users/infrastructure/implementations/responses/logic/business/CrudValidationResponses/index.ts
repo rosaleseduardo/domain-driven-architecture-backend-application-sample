@@ -1,12 +1,12 @@
 /* eslint-disable max-len */
-import type { UserEntityImplLogic } from 'entities/users';
-
 import { Adapters } from '@core/application';
 import { Enums, type Interfaces } from '@core/domain';
 import { Implementations } from '@core/infrastructure';
 
+import type { ImplLogic } from '../../../../../../domain';
+
 export class CrudValidationResponses
-  implements UserEntityImplLogic.CrudValidationResponses
+  implements ImplLogic.CrudValidationResponses
 {
   incompleteInputData(): boolean {
     const { Helpers } = Implementations;

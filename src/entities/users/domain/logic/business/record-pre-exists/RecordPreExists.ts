@@ -1,11 +1,12 @@
-import { USER_ENTITY, type UserEntityImplLogic } from 'entities/users';
-
 import type { Interfaces } from '@core/domain';
 
-export class RecordPreExists {
-  private readonly _implementation: UserEntityImplLogic.Crud;
+import { type ImplLogic } from '../../../../domain';
+import { BUSINESS_RULES_RESPONSES } from '../../../../infrastructure';
 
-  constructor(implementation: UserEntityImplLogic.Crud) {
+export class RecordPreExists {
+  private readonly _implementation: ImplLogic.Crud;
+
+  constructor(implementation: ImplLogic.Crud) {
     this._implementation = implementation;
   }
 
@@ -13,7 +14,7 @@ export class RecordPreExists {
     const recordPreExists = await this._implementation.recordPreExists(email);
 
     return recordPreExists
-      ? new USER_ENTITY.RESPONSES.RECORD_PRE_EXISTS().found()
-      : new USER_ENTITY.RESPONSES.RECORD_PRE_EXISTS().notFound();
+      ? new BUSINESS_RULES_RESPONSES.RECORD_PRE_EXISTS().found()
+      : new BUSINESS_RULES_RESPONSES.RECORD_PRE_EXISTS().notFound();
   }
 }
