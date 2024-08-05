@@ -2,9 +2,11 @@ import { USER_ENTITY } from 'entities/users';
 import type { Request, Response } from 'express';
 
 import { Enums } from '@core/domain';
-import { HELPERS } from '@core/infrastructure/implementations/helpers';
+import { Implementations } from '@core/infrastructure';
 
 export const create = async (req: Request, res: Response): Promise<void> => {
+  const { Helpers } = Implementations;
+
   try {
     const useCaseCreateUser = await new USER_ENTITY.USE_CASES.Create(
       new USER_ENTITY.REPOSITORY(),
@@ -17,7 +19,7 @@ export const create = async (req: Request, res: Response): Promise<void> => {
       .status(useCaseCreateUser.httpStatusCode)
       .json({ data: useCaseCreateUser.data });
   } catch (error) {
-    HELPERS.AppResponseLog.exception(
+    Helpers.AppResponseLog.exception(
       // eslint-disable-next-line max-len
       `An unhanlded error has occurred when creating the user. Details: ${error as string}`,
     );

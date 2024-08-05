@@ -3,13 +3,15 @@ import type { UserEntityImplLogic } from 'entities/users';
 
 import { Adapters } from '@core/application';
 import { Enums, type Interfaces } from '@core/domain';
-import { HELPERS } from '@core/infrastructure/implementations/helpers';
+import { Implementations } from '@core/infrastructure';
 
 export class CrudValidationResponses
   implements UserEntityImplLogic.CrudValidationResponses
 {
   incompleteInputData(): boolean {
-    HELPERS.AppResponseLog.info(
+    const { Helpers } = Implementations;
+
+    Helpers.AppResponseLog.info(
       'BUSINESS_LOGIC - CREATE_USER_DATA_IS_VALID: Not all the properties were provided',
     );
 
@@ -17,7 +19,9 @@ export class CrudValidationResponses
   }
 
   completeInputData(): boolean {
-    HELPERS.AppResponseLog.info(
+    const { Helpers } = Implementations;
+
+    Helpers.AppResponseLog.info(
       'BUSINESS_LOGIC - CREATE_USER_DATA_IS_VALID: All properties were provided',
     );
 
@@ -25,7 +29,9 @@ export class CrudValidationResponses
   }
 
   invalidEmail(email: string): boolean {
-    HELPERS.AppResponseLog.exception(
+    const { Helpers } = Implementations;
+
+    Helpers.AppResponseLog.exception(
       `Email property value is not valid: ${email}`,
     );
 
@@ -33,7 +39,9 @@ export class CrudValidationResponses
   }
 
   invalidName(name: string): boolean {
-    HELPERS.AppResponseLog.exception(
+    const { Helpers } = Implementations;
+
+    Helpers.AppResponseLog.exception(
       `Name property value is no valid: ${name}`,
     );
 
@@ -41,13 +49,17 @@ export class CrudValidationResponses
   }
 
   invalidAge(age: number): boolean {
-    HELPERS.AppResponseLog.exception(`Age property value is no valid: ${age}`);
+    const { Helpers } = Implementations;
+
+    Helpers.AppResponseLog.exception(`Age property value is no valid: ${age}`);
 
     return false;
   }
 
   validPropertyValues(): boolean {
-    HELPERS.AppResponseLog.info(
+    const { Helpers } = Implementations;
+
+    Helpers.AppResponseLog.info(
       'BUSINESS_LOGIC - CREATE_USER_DATA_IS_VALID: All property values are well defined',
     );
 
@@ -55,7 +67,9 @@ export class CrudValidationResponses
   }
 
   validInputData(): boolean {
-    HELPERS.AppResponseLog.success(
+    const { Helpers } = Implementations;
+
+    Helpers.AppResponseLog.success(
       'BUSINESS_LOGIC - CREATE_USER_DATA_IS_VALID: Create User Data is valid to continue',
     );
 
@@ -63,9 +77,10 @@ export class CrudValidationResponses
   }
 
   invalidInputData(): Interfaces.Response.ApplicationFailedOutput {
+    const { Helpers } = Implementations;
     const { ApplicationFailedResponse } = Adapters;
 
-    HELPERS.AppResponseLog.exception(
+    Helpers.AppResponseLog.exception(
       `BUSINESS_LOGIC - CREATE_USER_DATA_IS_VALID: The information provided is
       incomplete or invalid, please verify it`,
     );

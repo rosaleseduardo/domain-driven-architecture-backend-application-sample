@@ -1,8 +1,7 @@
 import express from 'express';
 import type * as http from 'http';
 
-import { EntryPoints } from '@core/infrastructure';
-import { HELPERS } from '@core/infrastructure/implementations/helpers';
+import { EntryPoints, Implementations } from '@core/infrastructure';
 
 class ExpressServer {
   private readonly _port: string;
@@ -44,9 +43,11 @@ class ExpressServer {
   }
 
   async listen(): Promise<void> {
+    const { Helpers } = Implementations;
+
     await new Promise<void>(resolve => {
       this._httpServer = this._app.listen(this._port, () => {
-        HELPERS.AppResponseLog.success(
+        Helpers.AppResponseLog.success(
           `App is being served on http://localhost:${this._port}\n`,
         );
         resolve();

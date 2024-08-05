@@ -1,13 +1,16 @@
 import type { UserEntityImplLogic } from 'entities/users';
 
-import { HELPERS } from '@core/infrastructure/implementations/helpers';
-
+import { Implementations } from '@core/infrastructure';
 export class UserValidation implements UserEntityImplLogic.CrudValidation {
   isValidEmail(email: string): boolean {
-    return HELPERS.isValidEmail(email);
+    const { Helpers } = Implementations;
+
+    return Helpers.isValidEmail(email);
   }
 
   areEqual(valueOne: string[], valueTwo: string[]): boolean {
-    return HELPERS.isEqual(valueOne, valueTwo);
+    const { Helpers } = Implementations;
+
+    return Helpers.isEqual(valueOne, valueTwo);
   }
 }
