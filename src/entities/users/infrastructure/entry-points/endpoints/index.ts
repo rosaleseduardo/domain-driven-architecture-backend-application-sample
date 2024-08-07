@@ -1,1 +1,1 @@
-export { default as Router } from './userEntity.router';
+export { default as Endpoints } from './endpoints';
