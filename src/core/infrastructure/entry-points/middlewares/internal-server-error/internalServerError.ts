@@ -1,6 +1,6 @@
 import type { NextFunction, Request, Response } from 'express';
 
-import { Enums } from '@core/domain';
+import { Enums } from '../../../../domain';
 
 /**
  * Handles errors by setting the appropriate status code and returning a JSON

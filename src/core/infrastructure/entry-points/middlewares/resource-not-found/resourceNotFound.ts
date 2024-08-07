@@ -1,6 +1,6 @@
 import type { NextFunction, Request, Response } from 'express';
 
-import { Enums } from '@core/domain';
+import { Enums } from '../../../../domain';
 
 /**
  * Handles requests that do not match any routes by setting the appropriate

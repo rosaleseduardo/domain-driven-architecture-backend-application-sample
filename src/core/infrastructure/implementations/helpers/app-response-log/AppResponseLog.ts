@@ -1,6 +1,6 @@
 import chalk from 'chalk';
 
-import { Enums, type Interfaces } from '@core/domain';
+import { Enums, type Interfaces } from '../../../../domain';
 
 /**
  * Defines the background color for successful output.

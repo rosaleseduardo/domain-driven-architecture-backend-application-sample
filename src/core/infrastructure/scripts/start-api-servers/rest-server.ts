@@ -1,8 +1,6 @@
 import * as dotenv from 'dotenv';
 
-import { Implementations } from '@core/infrastructure';
-
-import { Instances } from '../../instances';
+import { Implementations, Instances } from '../../../infrastructure';
 
 try {
   dotenv.config();

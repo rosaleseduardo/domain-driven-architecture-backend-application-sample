@@ -1,7 +1,7 @@
 import express from 'express';
 import type * as http from 'http';
 
-import { EntryPoints, Implementations } from '@core/infrastructure';
+import { EntryPoints, Implementations } from '../../../../infrastructure';
 
 class Express {
   private readonly _port: string;

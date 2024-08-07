@@ -1,5 +1,6 @@
-import { Implementations } from '@core/infrastructure';
 import { Express } from '@core/infrastructure/instances/servers';
+
+import { Implementations } from '../../../../infrastructure';
 
 class Rest {
   server?: Express;
