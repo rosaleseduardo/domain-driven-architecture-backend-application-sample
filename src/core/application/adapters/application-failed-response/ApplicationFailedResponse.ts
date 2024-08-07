@@ -1,4 +1,4 @@
-import { type Interfaces } from '../../../domain';
+import type { Interfaces } from '../../../domain';
 
 const ApplicationFailedResponse = (
   httpStatusCode: number,

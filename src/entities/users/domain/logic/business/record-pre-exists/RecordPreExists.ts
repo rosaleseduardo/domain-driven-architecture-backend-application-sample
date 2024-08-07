@@ -1,6 +1,6 @@
 import type { Interfaces } from '@core/domain';
 
-import { type ImplLogic } from '../../../../domain';
+import type { ImplLogic } from '../../../../domain';
 import { BUSINESS_RULES_RESPONSES } from '../../../../infrastructure';
 
 class RecordPreExists {
