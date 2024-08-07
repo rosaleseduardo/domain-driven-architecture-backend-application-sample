@@ -1,12 +1,12 @@
 import { Adapters as CoreAdapters } from '@core/application';
 import type { Interfaces as CoreInterfaces } from '@core/domain';
 
+import { Adapters as UsersAdapters } from '../../../application';
 import {
   BusinessLogic,
   type ImplLogic,
   type Interfaces as UsersInterfaces,
 } from '../../../domain';
-import { Adapters as UsersAdapters } from '../../adapters';
 
 class Create {
   private readonly _crudImpl: ImplLogic.Crud;

@@ -1,7 +1,7 @@
 import bcrypt from 'bcrypt';
 
 import type { ImplLogic, Interfaces } from '../../../domain';
-import { Collection } from '../../instances';
+import { Collection } from '../../../infrastructure';
 
 class Repository implements ImplLogic.Crud {
   async save(user: Interfaces.User): Promise<void> {

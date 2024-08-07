@@ -1,6 +1,6 @@
+import { Adapters } from '../../../application';
 import { Enums, type Interfaces } from '../../../domain';
 import { Implementations } from '../../../infrastructure';
-import { ApplicationFailedResponse } from '../application-failed-response';
 
 class UnhandledErrorResponse {
   private readonly functionName: string;
@@ -19,7 +19,7 @@ class UnhandledErrorResponse {
       `An unhandled error has happened on ${this.functionName}. Details: ${this.message}`,
     );
 
-    return ApplicationFailedResponse(
+    return Adapters.ApplicationFailedResponse(
       Enums.SERVER_ERROR_HTTP_STATUS_CODE.INTERNAL_SERVER_ERROR,
       // eslint-disable-next-line max-len
       `An unhandled error has happened on ${this.functionName}. Details: ${this.message}`,

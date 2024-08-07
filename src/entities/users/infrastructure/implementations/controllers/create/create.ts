@@ -4,9 +4,12 @@ import { Enums } from '@core/domain';
 import { Implementations } from '@core/infrastructure';
 
 import { UseCases } from '../../../../application';
-import { Repository } from '../../repository';
-import { BusinessRuleResponses, CrudResponses } from '../../responses';
-import { CrudValidation } from '../../validations';
+import {
+  BusinessRuleResponses,
+  CrudResponses,
+  CrudValidation,
+  Repository,
+} from '../../../../infrastructure';
 
 const create = async (req: Request, res: Response): Promise<void> => {
   const { Helpers } = Implementations;
