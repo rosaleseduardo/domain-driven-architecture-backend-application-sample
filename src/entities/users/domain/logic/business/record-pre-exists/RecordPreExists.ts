@@ -1,7 +1,7 @@
 import type { Interfaces } from '@core/domain';
 
 import type { ImplLogic } from '../../../../domain';
-import { BUSINESS_RULES_RESPONSES } from '../../../../infrastructure';
+import { BusinessRuleResponses } from '../../../../infrastructure';
 
 class RecordPreExists {
   private readonly _implementation: ImplLogic.Crud;
@@ -14,8 +14,8 @@ class RecordPreExists {
     const recordPreExists = await this._implementation.recordPreExists(email);
 
     return recordPreExists
-      ? new BUSINESS_RULES_RESPONSES.RECORD_PRE_EXISTS().found()
-      : new BUSINESS_RULES_RESPONSES.RECORD_PRE_EXISTS().notFound();
+      ? new BusinessRuleResponses.RecordPreExistsResponse().found()
+      : new BusinessRuleResponses.RecordPreExistsResponse().notFound();
   }
 }
 

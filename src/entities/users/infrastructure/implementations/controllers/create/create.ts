@@ -5,8 +5,8 @@ import { Implementations } from '@core/infrastructure';
 
 import { UseCases } from '../../../../application';
 import { Repository } from '../../repository';
-import { BUSINESS_RULES_RESPONSES, CRUD_RESPONSES } from '../../responses';
-import { UserValidation } from '../../validations';
+import { BusinessRuleResponses, CrudResponses } from '../../responses';
+import { CrudValidation } from '../../validations';
 
 const create = async (req: Request, res: Response): Promise<void> => {
   const { Helpers } = Implementations;
@@ -14,9 +14,9 @@ const create = async (req: Request, res: Response): Promise<void> => {
   try {
     const useCaseCreateUser = await new UseCases.Create(
       new Repository(),
-      new UserValidation(),
-      new CRUD_RESPONSES(),
-      new BUSINESS_RULES_RESPONSES.CRUD_VALIDATION(),
+      new CrudValidation(),
+      new CrudResponses(),
+      new BusinessRuleResponses.CrudValidationResponses(),
     ).invoke(req.body);
 
     res

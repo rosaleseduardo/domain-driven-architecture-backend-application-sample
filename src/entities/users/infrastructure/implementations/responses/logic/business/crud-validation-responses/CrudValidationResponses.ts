@@ -4,7 +4,6 @@ import { Enums, type Interfaces } from '@core/domain';
 import { Implementations } from '@core/infrastructure';
 
 import type { ImplLogic } from '../../../../../../domain';
-
 class CrudValidationResponses implements ImplLogic.CrudValidationResponses {
   incompleteInputData(): boolean {
     const { Helpers } = Implementations;

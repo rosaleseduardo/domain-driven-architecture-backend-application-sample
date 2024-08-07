@@ -1,1 +1,1 @@
-export { default as UserValidation } from './validation';
+export { default as CrudValidation } from './CrudValidation';
