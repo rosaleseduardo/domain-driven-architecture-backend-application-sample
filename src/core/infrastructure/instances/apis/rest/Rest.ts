@@ -1,6 +1,5 @@
-import { Express } from '@core/infrastructure/instances/servers';
-
-import { Implementations } from '../../../../infrastructure';
+import { Implementations, Instances } from '../../../../infrastructure';
+import type { Express } from '../../servers';
 
 class Rest {
   server?: Express;
@@ -10,7 +9,7 @@ class Rest {
 
     const port = process.env.SERVER_PORT as string;
 
-    this.server = new Express(port);
+    this.server = new Instances.servers.Express(port);
 
     try {
       await this.server.listen().then(() => {
