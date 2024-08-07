@@ -1,13 +1,13 @@
 import { Router as ExpressRouter } from 'express';
 
-import { Contollers } from '../../implementations';
+import { Controllers } from '../../implementations';
 
 const Router = ExpressRouter();
 
 Router.get('/', (_req, res) => {
   res.json({ message: 'Obteniendo el recurso de usuarios' });
 });
-Router.post('/', Contollers.create);
+Router.post('/', Controllers.create);
 Router.put('/', (_req, res) => {
   res.json({ message: 'Modificando el recurso de usuarios' });
 });
