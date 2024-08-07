@@ -1,4 +1,4 @@
-import type { Interfaces } from '@entities/users/domain';
+import type { Interfaces } from '../../../domain';
 
 const RefineUserEntity = (
   user: Interfaces.User,
