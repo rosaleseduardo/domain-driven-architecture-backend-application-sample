@@ -14,8 +14,8 @@ class RecordPreExists {
     const recordPreExists = await this._implementation.recordPreExists(email);
 
     return recordPreExists
-      ? new BusinessRuleResponses.RecordPreExistsResponse().found()
-      : new BusinessRuleResponses.RecordPreExistsResponse().notFound();
+      ? new BusinessRuleResponses.RecordPreExists().found()
+      : new BusinessRuleResponses.RecordPreExists().notFound();
   }
 }
 

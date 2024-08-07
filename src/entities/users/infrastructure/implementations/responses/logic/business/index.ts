@@ -1,7 +1,7 @@
-import { CrudValidationResponses } from './crud-validation-responses';
-import { RecordPreExistsResponse } from './record-pre-exists-response';
+import { CrudValidation } from './crud-validation';
+import { RecordPreExists } from './record-pre-exists';
 
 export const BusinessRuleResponses = {
-  RecordPreExistsResponse,
-  CrudValidationResponses,
+  RecordPreExists,
+  CrudValidation,
 };

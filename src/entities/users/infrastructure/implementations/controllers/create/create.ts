@@ -19,7 +19,7 @@ const create = async (req: Request, res: Response): Promise<void> => {
       new Repository(),
       new CrudValidation(),
       new CrudResponses(),
-      new BusinessRuleResponses.CrudValidationResponses(),
+      new BusinessRuleResponses.CrudValidation(),
     ).invoke(req.body);
 
     res
