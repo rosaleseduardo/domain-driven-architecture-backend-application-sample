@@ -1,1 +1,1 @@
-export * from './userEntity.repository';
+export { default as Repository } from './Repository';

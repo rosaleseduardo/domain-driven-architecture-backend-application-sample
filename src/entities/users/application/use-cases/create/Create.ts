@@ -8,7 +8,7 @@ import {
 } from '../../../domain';
 import { Adapters as UsersAdapters } from '../../adapters';
 
-export class Create {
+class Create {
   private readonly _crudImpl: ImplLogic.Crud;
   private readonly _crudValidationImpl: ImplLogic.CrudValidation;
   private readonly _crudResponsesImpl: ImplLogic.CrudResponses;
@@ -68,3 +68,5 @@ export class Create {
     return INCOMING_USER_DATA_IS_VALID.failed();
   }
 }
+
+export default Create;

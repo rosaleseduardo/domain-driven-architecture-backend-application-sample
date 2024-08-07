@@ -1,1 +1,1 @@
-export * from './AppResponseLog';
+export { default as AppResponseLog } from './AppResponseLog';

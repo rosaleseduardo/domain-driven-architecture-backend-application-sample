@@ -1,7 +1,8 @@
 import { Implementations } from '@core/infrastructure';
 
 import type { ImplLogic } from '../../../domain';
-export class UserValidation implements ImplLogic.CrudValidation {
+
+class UserValidation implements ImplLogic.CrudValidation {
   isValidEmail(email: string): boolean {
     const { Helpers } = Implementations;
 
@@ -14,3 +15,5 @@ export class UserValidation implements ImplLogic.CrudValidation {
     return Helpers.isEqual(valueOne, valueTwo);
   }
 }
+
+export default UserValidation;

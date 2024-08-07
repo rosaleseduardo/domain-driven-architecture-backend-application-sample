@@ -1,1 +1,1 @@
-export * from './RefineUserEntity';
+export { default as RefineUserEntity } from './RefineUserEntity';

@@ -1,7 +1,7 @@
 import { Enums, type Interfaces } from '@core/domain';
 import { Implementations } from '@core/infrastructure';
 
-export class RecordPreExistsResponse {
+class RecordPreExistsResponse {
   found(): Interfaces.Response.ApplicationGeneral {
     const { Helpers } = Implementations;
 
@@ -34,3 +34,5 @@ export class RecordPreExistsResponse {
     return process;
   }
 }
+
+export default RecordPreExistsResponse;

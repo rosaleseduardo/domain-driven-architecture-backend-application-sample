@@ -1,1 +1,1 @@
-export * from './CreateDataIsValid';
+export { default as CreateDataIsValid } from './CreateDataIsValid';

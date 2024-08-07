@@ -1,1 +1,1 @@
-export * from './RecordPreExists';
+export { default as RecordPreExists } from './RecordPreExists';

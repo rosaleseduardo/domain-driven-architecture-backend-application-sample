@@ -7,7 +7,7 @@ import type {
   Interfaces as UsersInterfaces,
 } from '../../../../../domain';
 
-export class Crud implements ImplLogic.CrudResponses {
+class Crud implements ImplLogic.CrudResponses {
   creationSucceeded(
     dataSource: Omit<UsersInterfaces.User, 'password'>,
   ): CoreInterfaces.Response.DataSourceOutput<
@@ -42,3 +42,5 @@ export class Crud implements ImplLogic.CrudResponses {
     );
   }
 }
+
+export default Crud;

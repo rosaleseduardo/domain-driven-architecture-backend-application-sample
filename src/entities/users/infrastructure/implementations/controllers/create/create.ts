@@ -8,7 +8,7 @@ import { Repository } from '../../repository';
 import { BUSINESS_RULES_RESPONSES, CRUD_RESPONSES } from '../../responses';
 import { UserValidation } from '../../validations';
 
-export const create = async (req: Request, res: Response): Promise<void> => {
+const create = async (req: Request, res: Response): Promise<void> => {
   const { Helpers } = Implementations;
 
   try {
@@ -38,3 +38,5 @@ export const create = async (req: Request, res: Response): Promise<void> => {
     });
   }
 };
+
+export default create;

@@ -1,1 +1,1 @@
-export * from './userEntity.collection.users';
+export { default as Collection } from './users';

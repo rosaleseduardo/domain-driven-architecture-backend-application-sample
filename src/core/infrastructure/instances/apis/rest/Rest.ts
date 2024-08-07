@@ -1,7 +1,7 @@
 import { Implementations } from '@core/infrastructure';
 import { Express } from '@core/infrastructure/instances/servers';
 
-export class Rest {
+class Rest {
   server?: Express;
 
   async start(): Promise<void> {
@@ -31,3 +31,5 @@ export class Rest {
     await this.server?.stop();
   }
 }
+
+export default Rest;

@@ -1,1 +1,1 @@
-export * from './userEntity.validation';
+export { default as UserValidation } from './validation';

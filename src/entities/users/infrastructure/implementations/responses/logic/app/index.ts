@@ -1,3 +1,3 @@
-import { Crud } from './userEntity.response.Crud';
+import { default as Crud } from './Crud';
 
 export const CRUD_RESPONSES = Crud;

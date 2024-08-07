@@ -5,7 +5,7 @@ import type {
   Interfaces as UsersInterfaces,
 } from '../../../../domain';
 
-export class CreateDataIsValid {
+class CreateDataIsValid {
   private readonly _user: UsersInterfaces.User;
   private readonly _crudValidationImpl: ImplLogic.CrudValidation;
   // eslint-disable-next-line max-len
@@ -68,3 +68,5 @@ export class CreateDataIsValid {
     return this._crudValidationResponsesImpl.invalidInputData();
   }
 }
+
+export default CreateDataIsValid;

@@ -1,1 +1,1 @@
-export * from './Rest';
+export { default as Rest } from './Rest';

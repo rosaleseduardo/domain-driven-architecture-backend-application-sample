@@ -44,9 +44,11 @@ const info = (message: string): void => {
 };
 
 /** Outputs the response from a process */
-export const AppResponseLog: Interfaces.Log.AppResponseDefinition = {
+const AppResponseLog: Interfaces.Log.AppResponseDefinition = {
   success,
   warning,
   exception,
   info,
 };
+
+export default AppResponseLog;

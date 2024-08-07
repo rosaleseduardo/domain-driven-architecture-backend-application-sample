@@ -12,6 +12,8 @@ const emailFormat =
  *
  * @returns `true` if the email address is in a valid format, `false` otherwise.
  */
-export const isValidEmail = (email: string): boolean => {
+const isValidEmail = (email: string): boolean => {
   return emailFormat.test(email);
 };
+
+export default isValidEmail;

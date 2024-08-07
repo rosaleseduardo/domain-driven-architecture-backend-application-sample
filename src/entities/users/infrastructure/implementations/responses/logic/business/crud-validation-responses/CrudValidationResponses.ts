@@ -5,9 +5,7 @@ import { Implementations } from '@core/infrastructure';
 
 import type { ImplLogic } from '../../../../../../domain';
 
-export class CrudValidationResponses
-  implements ImplLogic.CrudValidationResponses
-{
+class CrudValidationResponses implements ImplLogic.CrudValidationResponses {
   incompleteInputData(): boolean {
     const { Helpers } = Implementations;
 
@@ -91,3 +89,5 @@ export class CrudValidationResponses
     );
   }
 }
+
+export default CrudValidationResponses;

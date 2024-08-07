@@ -1,4 +1,4 @@
-import { COLLECTION } from './userEntity.collection.users';
+import { COLLECTION } from './users';
 
 describe('Mongo DB Collection - User', () => {
   it('It should be of type "Collection<User>"', () => {

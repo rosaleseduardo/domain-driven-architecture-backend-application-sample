@@ -3,7 +3,7 @@ import type { Interfaces } from '@core/domain';
 import { type ImplLogic } from '../../../../domain';
 import { BUSINESS_RULES_RESPONSES } from '../../../../infrastructure';
 
-export class RecordPreExists {
+class RecordPreExists {
   private readonly _implementation: ImplLogic.Crud;
 
   constructor(implementation: ImplLogic.Crud) {
@@ -18,3 +18,5 @@ export class RecordPreExists {
       : new BUSINESS_RULES_RESPONSES.RECORD_PRE_EXISTS().notFound();
   }
 }
+
+export default RecordPreExists;

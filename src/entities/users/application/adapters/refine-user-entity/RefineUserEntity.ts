@@ -1,6 +1,6 @@
 import type { Interfaces } from '@entities/users/domain';
 
-export const RefineUserEntity = (
+const RefineUserEntity = (
   user: Interfaces.User,
 ): Omit<Interfaces.User, 'password'> => {
   return {
@@ -10,3 +10,5 @@ export const RefineUserEntity = (
     age: user.age,
   };
 };
+
+export default RefineUserEntity;
