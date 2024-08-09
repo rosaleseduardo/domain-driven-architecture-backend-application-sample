@@ -125,6 +125,11 @@ comply with the following criteria:
 expected to be associated to a single ticket number, it means that
 **only one commit is allowed per ticket assigned.** (if you need to update your
 branch with the latest changes from the main branch, please perform a rebase)
+
+   If you're unfamiliar with how to make a rebase, we have a helpful
+   [tutorial](https://www.youtube.com/watch?v=DLadleLj0ic) video for you to
+   watch.
+
 2. **Each commit must deliver a stable version of the app.**
 3. The commit must state the title of the task/subtask that was taken,
 **_e.g MDC-000 This is the title of the task_**
