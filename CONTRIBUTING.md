@@ -96,6 +96,8 @@ include this configuration
    issues.
    - Submit a pull request and provide a clear description of the changes. More
    details [here](#how-to-make-a-commit).
+   - _If you are a code reviewer, please wait until the PR has 3 approvals in
+   order to merge it._
 
 3. Code of Conduct
 
