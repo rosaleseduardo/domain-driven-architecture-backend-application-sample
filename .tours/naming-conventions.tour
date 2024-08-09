@@ -4,7 +4,7 @@
   "steps": [
     {
       "title": "Introduction",
-      "description": "- For directories: **kebab-case**.\n\n    1. If a directory is part of the composition of that layer, it must always be in the plural form.\n    2. If a directory is contained within any of the directories that are part of the composition of a layer, it must always be in the singular form.\n    \n- For files within directories:\n    1. Functions: **camelCase**\n    2. Classes: **PascalCase**",
+      "description": "- For directories: **kebab-case**.\n    1. The primary layers in a domain-driven pattern should always be named in the singular form.\n    2. Directories that make up these layers must be named in the plural form.\n    3. Any subdirectory within these directories should be named in the singular form.\n    \n- For files within directories:\n    1. Functions: **camelCase**\n    2. Classes: **PascalCase**",
       "selection": {
         "start": {
           "line": 3,
