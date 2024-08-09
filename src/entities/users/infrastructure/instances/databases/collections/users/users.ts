@@ -1,3 +1,4 @@
+//FIXME: This file is breaking the pattern of exporting resources
 import { mongodb } from '@core/infrastructure/instances/databases';
 
 import type { Interfaces } from '../../../../../domain';
