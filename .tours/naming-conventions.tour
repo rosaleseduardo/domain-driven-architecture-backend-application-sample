@@ -1,0 +1,20 @@
+{
+  "$schema": "https://aka.ms/codetour-schema",
+  "title": "2. Naming Conventions",
+  "steps": [
+    {
+      "title": "Introduction",
+      "description": "- For directories: **kebab-case**.\n    1. The primary layers in a domain-driven pattern should always be named in the singular form.\n    2. Directories that make up these layers must be named in the plural form.\n    3. Any subdirectory within these directories should be named in the singular form.\n    4. If the directory represents an entity, it should be named in the plural form.\n    \n- For files within directories:\n    1. Functions: **camelCase**\n    2. Classes: **PascalCase**",
+      "selection": {
+        "start": {
+          "line": 1,
+          "character": 1
+        },
+        "end": {
+          "line": 9,
+          "character": 31
+        }
+      }
+    }
+  ]
+}

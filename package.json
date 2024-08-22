@@ -1,0 +1,70 @@
+{
+  "name": "domain-driven-architecture-backend-application-sample",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "build": "tsc -p tsconfig.prod.json && tsc-alias",
+    "test": "jest --verbose",
+    "coverage": "jest --coverage",
+    "test:watch": "jest --watch",
+    "test:coverage": "jest --coverage --silent",
+    "dev": "ts-node-dev ./src/core/infrastructure/scripts/start-app/index.ts",
+    "prepare": "husky install",
+    "lint": "eslint . --report-unused-disable-directives",
+    "commit:changes": "git add -A && cz",
+    "pre-commit": "npm run lint",
+    "install-deps:clean": "pnpm install --frozen-lockfile",
+    "install-deps": "pnpm install",
+    "run-db": "brew services start mongodb-community@7.0",
+    "stop-db": "brew services stop mongodb-community@7.0"
+  },
+  "keywords": [],
+  "author": "Victor Rosales",
+  "license": "ISC",
+  "dependencies": {
+    "bcrypt": "5.1.1",
+    "chalk": "4.1.2",
+    "cors": "2.8.5",
+    "dotenv": "16.4.5",
+    "express": "4.19.2",
+    "helmet": "7.1.0",
+    "lodash": "4.17.21",
+    "mongodb": "6.8.0",
+    "morgan": "1.10.0",
+    "supertest": "7.0.0"
+  },
+  "devDependencies": {
+    "@eslint/js": "9.9.0",
+    "@types/bcrypt": "5.0.2",
+    "@types/cors": "2.8.17",
+    "@types/express": "4.17.21",
+    "@types/jest": "29.5.12",
+    "@types/lodash": "4.17.7",
+    "@types/morgan": "1.9.9",
+    "@types/node": "22.5.0",
+    "@types/supertest": "6.0.2",
+    "@typescript-eslint/parser": "8.2.0",
+    "commitizen": "4.3.0",
+    "cz-conventional-changelog": "3.3.0",
+    "eslint": "9.9.0",
+    "eslint-plugin-import": "2.29.1",
+    "eslint-plugin-prettier": "5.2.1",
+    "eslint-plugin-simple-import-sort": "12.1.1",
+    "eslint-plugin-tsdoc": "0.3.0",
+    "globals": "15.9.0",
+    "husky": "9.1.5",
+    "jest": "29.7.0",
+    "lint-staged": "15.2.9",
+    "ts-jest": "29.2.4",
+    "ts-node-dev": "2.0.0",
+    "tsc-alias": "1.8.10",
+    "tsconfig-paths": "4.2.0",
+    "typescript": "5.5.4",
+    "typescript-eslint": "8.2.0"
+  },
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-conventional-changelog"
+    }
+  }
+}

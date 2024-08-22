@@ -1,0 +1,16 @@
+{
+  "$schema": "https://aka.ms/codetour-schema",
+  "title": "4. Tracking and Managing Technical Debt",
+  "steps": [
+    {
+      "file": "src/core/domain/interfaces/type-definitions.ts",
+      "description": "We need to use the keywords FIXME or TODO in comments to specify the type of action required. This approach helps centralize the recording and management of technical debt-related tasks.",
+      "line": 5
+    },
+    {
+      "file": "src/entities/users/infrastructure/instances/databases/collections/users/users.ts",
+      "description": "The same pattern applies here.\n\nTo view the full list of items in the technical debt backlog:\n\n    For MacOS users: press `Cmd + Shift + p`\n    For Windows users: press `Ctrl + Shift + p`\n\nand then, select the option `TODO-Highlight: List highlighted annotatations.`",
+      "line": 9
+    }
+  ]
+}

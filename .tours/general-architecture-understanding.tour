@@ -1,0 +1,10 @@
+{
+  "$schema": "https://aka.ms/codetour-schema",
+  "title": "1. General Architecture Understanding",
+  "steps": [
+    {
+      "title": "Introduction",
+      "description": "Based on the principles of the **Vertical Slice Architecture** (for further insights, consider exploring other online resources and documentation), the project is structured into _three primary_ layers to promote standardization and clarity:\n\n1. **Core**: Encompassing foundational elements such as global configurations, constants, internationalization definitions, utility functions, and more. This segment acts as the bedrock upon which the project stands, adhering to the criteria of global accessibility and shared utility.\n\n2. **Entities**: Any object that can be manipulated through CRUD (Create, Read, Update, Delete) operations and is considered part of the main resources of the application should be defined as an entity here.\n\n_**Important: Please follow the conventions outlined in the Project's Software Architecture Diagram to easily create directories in each layer based on the specific concern they need to address.**_"
+    }
+  ]
+}
